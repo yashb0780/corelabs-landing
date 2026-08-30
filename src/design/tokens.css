@@ -1,0 +1,49 @@
+/* ---------------------------------------------------------------------------
+   LeadPlus marketing site — design tokens
+   Single source of truth for colour, type and layout.
+   Never hardcode a colour or font elsewhere in this repo. See CLAUDE.md.
+   --------------------------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..700;1,300..700&display=swap');
+
+:root {
+  /* Typeface */
+  --font-display: 'Inter Tight', ui-sans-serif, system-ui, -apple-system,
+    'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /* Used for sources, dates and labels. System stack on purpose: it needs no
+     extra network request and reads as tooling rather than as branding. */
+  --font-code: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+    'Liberation Mono', monospace;
+
+  /* Surfaces & text */
+  --ink: #1A1A1A;
+  --bg: #FFFFFF;
+  --band: #FAFAFA;
+  --border: #E8E8E8;
+
+  /* Signal colours — provenance of a data point */
+  --confirmed: #0F7B4F;
+  --inferred: #B45309;
+  --unknown: #8A8A8A;
+
+  /* Layout */
+  --content-max: 1140px;
+}
+
+/* Expose the tokens to Tailwind as theme values so utilities stay on-token:
+   text-ink, bg-band, border-border, text-confirmed, max-w-content, font-sans … */
+@theme inline {
+  --font-sans: var(--font-display);
+  --font-mono: var(--font-code);
+
+  --color-ink: var(--ink);
+  --color-bg: var(--bg);
+  --color-band: var(--band);
+  --color-border: var(--border);
+
+  --color-confirmed: var(--confirmed);
+  --color-inferred: var(--inferred);
+  --color-unknown: var(--unknown);
+
+  --container-content: var(--content-max);
+}

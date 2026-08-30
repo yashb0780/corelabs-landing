@@ -1,0 +1,17 @@
+/* tokens.css first: it carries the Google Fonts @import, and an @import rule
+   must precede all other rules in the flattened stylesheet. */
+@import './design/tokens.css';
+@import 'tailwindcss';
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
