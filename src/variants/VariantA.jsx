@@ -1,3 +1,5 @@
+import { Fragment } from 'react'
+
 /**
  * Variant A — "The absence".
  *
@@ -6,7 +8,12 @@
  * font-sans and font-mono. No hardcoded colours or font stacks. See CLAUDE.md.
  *
  * No customer names, logos, testimonials or statistics appear on this page.
- * The account in the resolution diagram is illustrative and labelled as such.
+ * The account in the resolution diagram is illustrative and labelled as such;
+ * the hero signal feed is illustrative in the same way.
+ *
+ * Vertical rhythm: every section carries pt-[120px]. A section also carries
+ * pb-[120px] when the next one has a different background, so the 120px gap
+ * survives across a band edge instead of doubling.
  */
 
 /* Gap between resolution rows. Kept in JS because the connector spine has to
@@ -38,6 +45,22 @@ function Section({ id, className = '', children }) {
   )
 }
 
+/* A 1px full-width rule plus a mono eyebrow. Opens every numbered section. */
+function SectionMarker({ index, label, centered = false }) {
+  return (
+    <>
+      <div aria-hidden className="h-px w-full bg-border" />
+      <p
+        className={`mt-5 font-mono text-[13px] tracking-wider text-unknown uppercase ${
+          centered ? 'text-center' : ''
+        }`}
+      >
+        {index} / {label}
+      </p>
+    </>
+  )
+}
+
 function SectionHeading({ children }) {
   return (
     <h2 className="max-w-3xl text-[32px] leading-[1.2] font-semibold tracking-[-0.02em]">
@@ -50,34 +73,85 @@ function SectionHeading({ children }) {
 /* Hero                                                                       */
 /* -------------------------------------------------------------------------- */
 
+/* Illustrative signal fragments, in the same spirit as the account block in
+   section 3: no company is named and nothing here is presented as a statistic. */
+const SIGNALS = [
+  { source: 'JOB POSTING', fragment: 'Senior ABAP role, S/4HANA conversion', age: '2d' },
+  { source: '10-K', fragment: 'ERP modernization named a priority', age: '6d' },
+  { source: 'LINKEDIN', fragment: 'New VP of Enterprise Applications', age: '11d' },
+  { source: 'PRESS RELEASE', fragment: 'Second manufacturing site announced', age: '18d' },
+  { source: 'JOB POSTING', fragment: 'SAP MM and WM roles opened together', age: '24d' },
+  { source: 'SEC FILING', fragment: 'Reshoring commitment in risk factors', age: '31d' },
+]
+
 function Hero() {
   return (
     <Section className="pt-[120px] pb-[120px]">
-      <h1 className="max-w-[16ch] text-[40px] leading-[1.05] font-semibold tracking-[-0.02em] sm:text-[56px] lg:text-[64px]">
-        Every lead gen tool was built for someone else.
-      </h1>
+      <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-[3fr_2fr] lg:items-center lg:gap-x-16">
+        <div>
+          <h1 className="max-w-[16ch] text-[40px] leading-[1.05] font-semibold tracking-[-0.02em] sm:text-[56px] lg:text-[64px]">
+            Every lead gen tool was built for someone else.
+          </h1>
 
-      <p className="mt-8 max-w-[62ch] text-[16px] leading-[1.6] text-ink/70">
-        LeadPlus is built for system integrators in the ERP space. Not
-        firmographics. Not generic intent keywords. What a company is actually
-        running, what kind of project it is, and how far along they already are.
-      </p>
+          <p className="mt-6 max-w-[480px] text-[16px] leading-[1.6] text-ink/70">
+            LeadPlus is built for system integrators in the ERP space. Not
+            firmographics. Not generic intent keywords. What a company is
+            actually running, what kind of project it is, and how far along they
+            already are.
+          </p>
 
-      <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-        <a
-          href="#how-it-works"
-          className="rounded-md bg-ink px-5 py-3 text-[15px] font-medium text-bg transition-opacity hover:opacity-90"
-        >
-          See how it works
-        </a>
-        <a
-          href="#three-states"
-          className="border-b border-border pb-0.5 text-[15px] text-ink/70 transition-colors hover:border-ink hover:text-ink"
-        >
-          How we source signals
-        </a>
+          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <a
+              href="#how-it-works"
+              className="rounded-md bg-ink px-5 py-3 text-[15px] font-medium text-bg transition-opacity hover:opacity-90"
+            >
+              See how it works
+            </a>
+            <a
+              href="#three-states"
+              className="border-b border-border pb-0.5 text-[15px] text-ink/70 transition-colors hover:border-ink hover:text-ink"
+            >
+              How we source signals
+            </a>
+          </div>
+        </div>
+
+        <SignalFeed />
       </div>
     </Section>
+  )
+}
+
+/* Static log, not a dashboard: no animation, no chrome, one grid so the source
+   and age columns align down the whole panel. */
+function SignalFeed() {
+  return (
+    <div className="border border-border bg-bg">
+      <div className="border-b border-border px-4 py-3 font-mono text-[13px] tracking-wider text-unknown uppercase">
+        Signal feed
+      </div>
+
+      <div className="grid grid-cols-[max-content_1fr_max-content] leading-[1.5]">
+        {SIGNALS.map((s, i) => {
+          const sep = i > 0 ? 'border-t border-border' : ''
+          return (
+            <Fragment key={`${s.source}-${s.age}`}>
+              <div className={`${sep} py-3 pr-3 pl-4 font-mono text-[13px] text-ink/60`}>
+                {s.source}
+              </div>
+              <div className={`${sep} py-3 pr-3 text-[14px] leading-[1.5]`}>
+                {s.fragment}
+              </div>
+              <div
+                className={`${sep} py-3 pr-4 text-right font-mono text-[12px] text-unknown`}
+              >
+                {s.age}
+              </div>
+            </Fragment>
+          )
+        })}
+      </div>
+    </div>
   )
 }
 
@@ -103,11 +177,13 @@ const NEEDED = [
 
 function Comparison() {
   return (
-    <Section className="pb-[120px]">
+    <Section className="bg-band pt-[120px] pb-[120px]">
+      <SectionMarker index="01" label="The gap" />
+
       {/* Subgrid keeps the two columns row-aligned on desktop while leaving each
           column a single container, so the mobile stack reads as two lists
           rather than interleaved cells. */}
-      <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-2 lg:gap-y-0 lg:[grid-template-rows:repeat(6,auto)]">
+      <div className="mt-12 grid grid-cols-1 gap-y-10 lg:grid-cols-2 lg:gap-y-0 lg:[grid-template-rows:repeat(6,auto)]">
         {/* Left: plain, no box. */}
         <div className="lg:row-span-6 lg:grid lg:grid-rows-subgrid">
           <h2 className="pr-8 pt-5 pb-5 text-[20px] leading-[1.3] font-semibold tracking-[-0.01em] text-ink/60">
@@ -124,7 +200,7 @@ function Comparison() {
         </div>
 
         {/* Right: bordered and filled so it reads as the answer. */}
-        <div className="border border-border bg-band lg:row-span-6 lg:grid lg:grid-rows-subgrid">
+        <div className="border border-border bg-bg lg:row-span-6 lg:grid lg:grid-rows-subgrid">
           <h2 className="px-6 pt-5 pb-5 text-[20px] leading-[1.3] font-semibold tracking-[-0.01em]">
             What an SI actually needs to bid
           </h2>
@@ -179,8 +255,13 @@ const RESOLUTIONS = [
 
 function Resolution() {
   return (
-    <Section id="how-it-works" className="pb-[120px]">
-      <SectionHeading>Four things we resolve before an RFP exists</SectionHeading>
+    <Section id="how-it-works" className="pt-[120px]">
+      <SectionMarker index="02" label="What we resolve" />
+      <div className="mt-5">
+        <SectionHeading>
+          Four things we resolve before an RFP exists
+        </SectionHeading>
+      </div>
 
       <div className="mt-16 grid grid-cols-1 gap-y-10 lg:grid-cols-[2fr_3fr] lg:items-center lg:gap-x-10 lg:gap-y-0">
         {/* Left: what everyone else can see. Deliberately sparse. */}
@@ -299,8 +380,11 @@ const STATES = [
 
 function ThreeStates() {
   return (
-    <Section id="three-states" className="pb-[120px]">
-      <SectionHeading>Three states, never two.</SectionHeading>
+    <Section id="three-states" className="pt-[120px] pb-[120px]">
+      <SectionMarker index="03" label="Confidence" />
+      <div className="mt-5">
+        <SectionHeading>Three states, never two.</SectionHeading>
+      </div>
 
       <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
         {STATES.map((s) => (
@@ -329,8 +413,11 @@ function ThreeStates() {
 
 function StartingWithSap() {
   return (
-    <section className="bg-band px-6 py-24">
-      <div className="mx-auto w-full max-w-[500px] text-center">
+    <section className="bg-band px-6 py-[120px]">
+      <div className="mx-auto w-full max-w-content">
+        <SectionMarker index="04" label="Scope" centered />
+      </div>
+      <div className="mx-auto mt-5 w-full max-w-[500px] text-center">
         <h2 className="text-[32px] leading-[1.2] font-semibold tracking-[-0.02em]">
           Starting with SAP
         </h2>
