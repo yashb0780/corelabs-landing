@@ -32,8 +32,18 @@ src/
   design/
     tokens.css          design tokens — the single source of truth
   variants/
-    VariantA.jsx        landing page variant A (currently a placeholder)
+    _shared.jsx         primitives shared by variants B–E
+    VariantA.jsx        landing page variant A
+    VariantB.jsx        "The paper trail"
+    VariantC.jsx        "The deal shape"
+    VariantD.jsx        "The clock"
+    VariantE.jsx        "The pressure map"
 ```
+
+`VariantA.jsx` is the structural reference and keeps its own local copies of
+the shared primitives, so it stands alone. Variants B–E import them from
+`_shared.jsx`, which is also what guarantees the "Three states, never two"
+block is identical across all five.
 
 ## Design tokens
 
@@ -59,8 +69,7 @@ directly: `text-ink`, `bg-band`, `border-border`, `text-confirmed`,
 ## Variants
 
 The site is being explored as five landing page variants, A through E. Pick one
-from the dropdown in the top-right corner. Only Variant A exists so far; B–E
-show a "not built yet" screen until their files are added.
+from the dropdown in the top-right corner. All five are built.
 
-To add one: create `src/variants/VariantX.jsx` with a default export, then point
-its entry in the `VARIANTS` registry in `src/App.jsx` at the component.
+To add another: create `src/variants/VariantX.jsx` with a default export, then
+point its entry in the `VARIANTS` registry in `src/App.jsx` at the component.

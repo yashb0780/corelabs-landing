@@ -1,5 +1,9 @@
 import { useState } from 'react'
 import VariantA from './variants/VariantA.jsx'
+import VariantB from './variants/VariantB.jsx'
+import VariantC from './variants/VariantC.jsx'
+import VariantD from './variants/VariantD.jsx'
+import VariantE from './variants/VariantE.jsx'
 
 /**
  * Variant registry. Add a variant by dropping a file in src/variants/ and
@@ -8,10 +12,10 @@ import VariantA from './variants/VariantA.jsx'
  */
 const VARIANTS = [
   { id: 'A', label: 'Variant A', Component: VariantA },
-  { id: 'B', label: 'Variant B', Component: null },
-  { id: 'C', label: 'Variant C', Component: null },
-  { id: 'D', label: 'Variant D', Component: null },
-  { id: 'E', label: 'Variant E', Component: null },
+  { id: 'B', label: 'Variant B', Component: VariantB },
+  { id: 'C', label: 'Variant C', Component: VariantC },
+  { id: 'D', label: 'Variant D', Component: VariantD },
+  { id: 'E', label: 'Variant E', Component: VariantE },
 ]
 
 export default function App() {
