@@ -5,28 +5,74 @@ import {
   HeroActions,
   HeroHeading,
   HeroSubhead,
+  IcpSection,
   Section,
   SectionMarker,
   ThreeStates,
 } from './_shared.jsx'
 
 /**
- * Variant D — "The clock".
+ * Variant D — "The pressure map". Design language: Notion.
  *
- * No customer names, logos, testimonials, quotes or statistics about
- * customers. The tracked-account alerts use descriptors, never names, and are
- * captioned as illustrative. The lead-time ranges in section 02 are
- * directional and carry the disclaimer the section calls for.
+ * Warm and documentary: off-white ground, warm greys, brown-black text, serif
+ * headings, minimal colour. It should read like an internal document.
+ *
+ * No customer names, logos, testimonials, quotes or statistics. Section 04
+ * describes the coverage gap without naming any vendor internal segment.
  */
+
+/* Notion: warm throughout. Dark mode goes warm charcoal rather than blue-black,
+   and colour stays minimal — the accent is the ink itself. */
+export const theme = {
+  defaultMode: 'light',
+  light: {
+    '--bg': '#FBFBFA',
+    '--band': '#F4F3F0',
+    '--surface': '#FFFFFF',
+    '--ink': '#37352F',
+    '--unknown': '#6F6C65',
+    '--border': '#E4E2DD',
+    '--accent': '#37352F',
+    '--on-accent': '#FBFBFA',
+    '--confirmed': '#448361',
+    '--inferred': '#9F6B53',
+    '--cta-bg': '#2F2D28',
+    '--cta-fg': '#F4F3F0',
+    '--radius': '3px',
+    '--elevation': 'none',
+    '--display-tracking': '-0.01em',
+    '--font-heading-stack': "'Lora', Georgia, 'Times New Roman', serif",
+  },
+  dark: {
+    '--bg': '#191918',
+    '--band': '#211F1D',
+    '--surface': '#252320',
+    '--ink': '#E9E6E1',
+    '--unknown': '#918D86',
+    '--border': '#35322D',
+    '--accent': '#E9E6E1',
+    '--on-accent': '#191918',
+    '--confirmed': '#7FB093',
+    '--inferred': '#C79075',
+    '--cta-bg': '#100F0E',
+    '--cta-fg': '#E9E6E1',
+    '--radius': '3px',
+    '--elevation': 'none',
+    '--display-tracking': '-0.01em',
+    '--font-heading-stack': "'Lora', Georgia, 'Times New Roman', serif",
+  },
+}
 
 export default function VariantD() {
   return (
     <div className="font-sans text-ink">
       <Hero />
-      <TheWindow />
-      <WhatFiresFirst />
-      <TrackedAccounts />
-      <ThreeStates index="04" band />
+      <IcpSection />
+      <ForcingFunctions />
+      <WhyThisChanges />
+      <WhereWeLook />
+      <CoverageGap />
+      <ThreeStates index="06" band />
       <Cta />
     </div>
   )
@@ -38,284 +84,292 @@ export default function VariantD() {
 
 function Hero() {
   return (
-    <Section className="pt-[120px]">
-      <HeroHeading className="max-w-[18ch]">
-        If you are reading the RFP, you are already the backup vendor.
+    <Section className="pt-[120px] pb-[120px]">
+      <HeroHeading className="max-w-[16ch]">
+        Nobody changes an ERP because it is old.
       </HeroHeading>
       <HeroSubhead>
-        By the time a request for proposal is public, the requirements have been
-        shaped by someone else. We surface ERP programs while they are still
-        internal conversations.
+        A support date, an audit, an ownership change, or a new plant is what
+        puts a system in play. We track that context alongside the install base,
+        so you can tell which accounts match the work your practice does.
       </HeroSubhead>
-      <HeroActions primary={{ href: '#window', label: 'See the timeline' }} />
+      <HeroActions primary={{ href: '#pressures', label: 'See the context' }} />
     </Section>
   )
 }
 
 /* -------------------------------------------------------------------------- */
-/* 01 — the window                                                            */
+/* 01 — five kinds of context                                                */
 /* -------------------------------------------------------------------------- */
 
-/* x is a percentage along the axis. The last marker is the RFP, and the band
-   shading runs from the left edge to exactly that point, so the shading
-   boundary and the marker are the same line. Positions are inset from the
-   container edges so a label centred on the first or last marker still fits. */
-const RFP_X = 77
-
-const WINDOW_MARKERS = [
-  { x: 12, label: 'First contractor role posted', source: 'JOB POSTING' },
+const PRESSURES = [
   {
-    x: 25,
-    label: 'Enterprise architect hired with migration background',
-    source: 'LINKEDIN',
+    label: 'Maintenance',
+    title: 'Vendor support end dates',
+    description:
+      'A published end date moves a system from a preference into a budget line.',
   },
-  { x: 38, label: 'Planning tooling appears in the stack', source: 'JOB POSTING' },
-  { x: 51, label: 'Modernization language enters the annual filing', source: '10-K' },
-  { x: 64, label: 'Program manager role opens', source: 'JOB POSTING' },
-  { x: RFP_X, label: 'RFP issued', source: 'PUBLIC' },
+  {
+    label: 'Compliance',
+    title: 'Mandates on a fixed clock',
+    description:
+      'Sector mandates, defense supply chain requirements, and audit findings that put a system change on a fixed clock.',
+  },
+  {
+    label: 'Ownership',
+    title: 'Events that reset the roadmap',
+    description:
+      'Sponsor-backed companies in the back half of a hold period, carve-outs standing up systems from scratch, and post-acquisition consolidation. Ownership events are public and they reset the roadmap.',
+  },
+  {
+    label: 'Trade',
+    title: 'Tariff exposure and reshoring',
+    description:
+      'Commitments that change where production happens and what the systems have to support.',
+  },
+  {
+    label: 'Growth',
+    title: 'Capacity the system outgrew',
+    description:
+      'New plants, new lines, and new geographies that outgrow what the current system was configured for.',
+  },
 ]
 
-function TheWindow() {
+function ForcingFunctions() {
   return (
-    <Section id="window" className="pt-[120px] pb-[120px]">
-      <SectionMarker index="01" label="The window" as="h2" />
+    <Section id="pressures" className="bg-band pt-[120px] pb-[120px]">
+      <SectionMarker index="02" label="Five kinds of context" as="h2" />
 
-      {/* Horizontal schematic, lg and up. */}
-      <div className="relative mt-16 hidden lg:block">
-        {/* Shading spans the strip and the region-label row beneath it, so the
-            label sits inside the region it names. */}
-        <div
-          aria-hidden
-          className="absolute inset-y-0 left-0 bg-band"
-          style={{ width: `${RFP_X}%` }}
-        />
+      <div className="mt-12">
+        {PRESSURES.map((p, i) => (
+          <div
+            key={p.label}
+            className={`grid grid-cols-1 gap-x-10 gap-y-3 py-8 lg:grid-cols-[200px_1fr] ${
+              i > 0 ? 'border-t border-border' : ''
+            }`}
+          >
+            <div className="font-mono text-[13px] tracking-wider text-unknown uppercase lg:pt-1">
+              {p.label}
+            </div>
+            <div>
+              <h3 className="font-heading text-[19px] leading-[1.35] font-semibold tracking-[-0.01em]">
+                {p.title}
+              </h3>
+              <p className="mt-2 max-w-[70ch] text-[14px] leading-[1.6] text-ink/70">
+                {p.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
 
-        <div className="relative h-[300px]">
-          <div aria-hidden className="absolute top-1/2 right-0 left-0 h-px bg-border" />
+      <EvidenceCard />
+    </Section>
+  )
+}
 
-          {WINDOW_MARKERS.map((m, i) => {
-            const above = i % 2 === 0
+/* Generic, plausible evidence. No company is named and nothing is stated as a
+   statistic; each row is the kind of dated public record the product cites. */
+const EVIDENCE = [
+  {
+    signal: 'Support date published',
+    says: 'Core platform maintenance ends inside the planning horizon',
+    source: 'VENDOR NOTICE',
+    date: '2026-03-11',
+  },
+  {
+    signal: 'Audit finding disclosed',
+    says: 'Control weakness tied to manual reconciliation',
+    source: '10-K',
+    date: '2026-05-02',
+  },
+  {
+    signal: 'Ownership change',
+    says: 'Majority stake acquired by a financial sponsor',
+    source: 'PRESS RELEASE',
+    date: '2026-06-18',
+  },
+  {
+    signal: 'New plant announced',
+    says: 'Second production site planned in the same region',
+    source: 'PRESS RELEASE',
+    date: '2026-07-24',
+  },
+]
+
+function EvidenceCard() {
+  return (
+    <>
+      <div className="mt-14 overflow-hidden rounded-theme border border-border bg-surface shadow-[var(--elevation)]">
+        <div className="border-b border-border px-5 py-4">
+          <div className="font-mono text-[12px] tracking-wider text-unknown uppercase">
+            Account
+          </div>
+          <div className="mt-1 font-heading text-[19px] leading-[1.35] font-semibold tracking-[-0.01em]">
+            Regional building products manufacturer
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 leading-[1.5] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)_max-content_max-content]">
+          {/* Column headers, lg and up only: below that each row reads as a
+              labelled block instead of a table. */}
+          {['Signal', 'What it says', 'Source', 'Date'].map((h) => (
+            <div
+              key={h}
+              className={`hidden border-b border-border px-5 py-3 font-mono text-[12px] tracking-wider text-unknown uppercase lg:block ${
+                h === 'Date' ? 'text-right' : ''
+              }`}
+            >
+              {h}
+            </div>
+          ))}
+
+          {EVIDENCE.map((e, i) => {
+            const first = i > 0 ? 'border-t border-border' : ''
+            const rest = i > 0 ? 'border-border lg:border-t' : ''
             return (
-              <Fragment key={m.label}>
+              <Fragment key={e.signal}>
                 <div
-                  aria-hidden
-                  className="absolute top-1/2 h-[11px] w-[11px] -translate-x-1/2 -translate-y-1/2 rounded-[4px] bg-ink"
-                  style={{ left: `${m.x}%` }}
-                />
-                {/* Labels alternate above and below. Same-side neighbours are
-                    26% apart, which is wider than the label, so they cannot
-                    collide. The source tag always sits nearest the axis. */}
-                <div
-                  className={`absolute w-[240px] -translate-x-1/2 text-center ${
-                    above ? 'bottom-[calc(50%+18px)]' : 'top-[calc(50%+18px)]'
-                  }`}
-                  style={{ left: `${m.x}%` }}
+                  className={`${first} px-5 pt-4 text-[15px] font-semibold tracking-[-0.01em] lg:py-4 lg:pr-4 lg:font-normal`}
                 >
-                  {above ? (
-                    <>
-                      <div className="text-[14px] leading-[1.5]">{m.label}</div>
-                      <div className="mt-1.5 font-mono text-[13px] text-unknown">
-                        {m.source}
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="font-mono text-[13px] text-unknown">
-                        {m.source}
-                      </div>
-                      <div className="mt-1.5 text-[14px] leading-[1.5]">
-                        {m.label}
-                      </div>
-                    </>
-                  )}
+                  {e.signal}
+                </div>
+                <div className={`${rest} px-5 pt-1 text-[14px] lg:px-0 lg:py-4 lg:pr-4`}>
+                  {e.says}
+                </div>
+                <div
+                  className={`${rest} px-5 pt-2 font-mono text-[13px] text-unknown lg:py-4 lg:pr-6 lg:text-ink`}
+                >
+                  {e.source}
+                </div>
+                <div
+                  className={`${rest} px-5 pt-1 pb-4 font-mono text-[13px] text-unknown lg:py-4 lg:text-right`}
+                >
+                  {e.date}
                 </div>
               </Fragment>
             )
           })}
         </div>
-
-        <div className="relative flex">
-          <div
-            className="py-4 font-mono text-[13px] tracking-wider uppercase"
-            style={{ width: `${RFP_X}%` }}
-          >
-            where LeadPlus operates
-          </div>
-          <div className="flex-1 py-4 pl-4 font-mono text-[13px] tracking-wider text-unknown uppercase">
-            where everyone else operates
-          </div>
-        </div>
-      </div>
-
-      {/* Stacked below lg: the same sequence, turned vertical. */}
-      <div className="mt-12 lg:hidden">
-        <WindowGroup
-          markers={WINDOW_MARKERS.slice(0, -1)}
-          label="where LeadPlus operates"
-          band
-        />
-        <WindowGroup
-          markers={WINDOW_MARKERS.slice(-1)}
-          label="where everyone else operates"
-          muted
-        />
-      </div>
-    </Section>
-  )
-}
-
-function WindowGroup({ markers, label, band = false, muted = false }) {
-  return (
-    <div
-      className={`border border-border p-5 ${band ? 'bg-band' : ''} ${
-        band ? 'border-b-0' : ''
-      }`}
-    >
-      <div
-        className={`font-mono text-[13px] tracking-wider uppercase ${
-          muted ? 'text-unknown' : ''
-        }`}
-      >
-        {label}
-      </div>
-      <ul className="mt-5">
-        {markers.map((m, i) => (
-          <li key={m.label} className="flex gap-4">
-            <div aria-hidden className="relative flex w-[11px] shrink-0 justify-center">
-              {/* The axis joins nodes, so a lone node gets no segment at all
-                  and the last node's segment stops at its centre. */}
-              {markers.length > 1 ? (
-                <div
-                  className={`absolute w-px bg-border ${
-                    i === markers.length - 1 ? 'top-0 h-[10px]' : 'inset-y-0'
-                  }`}
-                />
-              ) : null}
-              <div className="relative mt-[5px] h-[11px] w-[11px] rounded-[4px] bg-ink" />
-            </div>
-            <div className="pb-5">
-              <div className="text-[14px] leading-[1.5]">{m.label}</div>
-              <div className="mt-1 font-mono text-[13px] text-unknown">
-                {m.source}
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-}
-
-/* -------------------------------------------------------------------------- */
-/* 02 — what fires first                                                      */
-/* -------------------------------------------------------------------------- */
-
-const FIRES = [
-  { signal: 'First contractor role posted', source: 'JOB POSTING', lead: '14–20 months' },
-  { signal: 'Enterprise architect hired', source: 'LINKEDIN', lead: '12–18 months' },
-  { signal: 'Planning tooling appears in the stack', source: 'JOB POSTING', lead: '10–16 months' },
-  { signal: 'Modernization language enters the filing', source: '10-K', lead: '8–14 months' },
-  { signal: 'Program manager role opens', source: 'JOB POSTING', lead: '5–9 months' },
-  { signal: 'Partner shortlist begins to form', source: 'PRESS RELEASE', lead: '2–4 months' },
-]
-
-function WhatFiresFirst() {
-  return (
-    <Section className="bg-band pt-[120px] pb-[120px]">
-      <SectionMarker index="02" label="What fires first" as="h2" />
-
-      <div className="mt-12 border border-border bg-bg">
-        {FIRES.map((f, i) => (
-          <div
-            key={f.signal}
-            className={`grid grid-cols-1 gap-x-6 gap-y-2 px-6 py-5 sm:grid-cols-[1fr_max-content_max-content] sm:items-baseline ${
-              i > 0 ? 'border-t border-border' : ''
-            }`}
-          >
-            <div className="text-[16px] leading-[1.5]">{f.signal}</div>
-            <div className="font-mono text-[13px] text-unknown sm:text-center">
-              {f.source}
-            </div>
-            <div className="font-mono text-[13px] sm:text-right">{f.lead}</div>
-          </div>
-        ))}
       </div>
 
       <Caption>
-        Lead times vary by program size and industry. These are directional, not
-        guaranteed.
+        Illustrative account. Every row in the product links to a dated public
+        source.
       </Caption>
-    </Section>
+    </>
   )
 }
 
 /* -------------------------------------------------------------------------- */
-/* 03 — tracked accounts                                                      */
+/* 02 — why this changes the conversation                                     */
 /* -------------------------------------------------------------------------- */
 
-const ALERTS = [
-  {
-    account: 'Midwest industrial manufacturer',
-    signal: 'Program manager role opened',
-    age: '2d',
-  },
-  {
-    account: 'Southeast food processor',
-    signal: 'Modernization language added to filing',
-    age: '9d',
-  },
-  {
-    account: 'Regional building products group',
-    signal: 'New enterprise architect hired',
-    age: '16d',
-  },
-]
-
-function TrackedAccounts() {
+function WhyThisChanges() {
   return (
     <Section className="pt-[120px] pb-[120px]">
-      <SectionMarker index="03" label="Tracked accounts" as="h2" />
+      <SectionMarker
+        index="03"
+        label="Why this changes the conversation"
+        as="h2"
+      />
 
       <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-x-16">
         <p className="max-w-[52ch] text-[16px] leading-[1.6] text-ink/70">
-          Most tools make you re-run a search and diff the results yourself.
-          Give us the accounts you already care about and we watch them
-          continuously. When a role opens, a filing changes, or a leader moves,
-          you hear about it in context, with the source and the date attached,
-          instead of finding out a quarter later.
+          An account that fits your profile is a candidate. An account that
+          fits and whose system is visibly in play is a conversation you can
+          actually open. The first list is large and mostly static. The second
+          is smaller, moves as the evidence moves, and tells you what the first
+          call is about.
         </p>
 
-        <div className="border border-border bg-bg">
-          <div className="border-b border-border px-4 py-3 font-mono text-[13px] tracking-wider text-unknown uppercase">
-            Alerts
-          </div>
-          {ALERTS.map((a, i) => (
-            <div
-              key={a.account}
-              className={`flex items-start justify-between gap-4 px-4 py-4 ${
-                i > 0 ? 'border-t border-border' : ''
-              }`}
-            >
-              <div>
-                <div className="text-[16px] leading-[1.4] font-semibold tracking-[-0.01em]">
-                  {a.account}
-                </div>
-                <div className="mt-1 text-[14px] leading-[1.5] text-ink/70">
-                  {a.signal}
-                </div>
-              </div>
-              <div className="shrink-0 font-mono text-[12px] text-unknown">
-                {a.age}
-              </div>
+        <div className="flex flex-col gap-4">
+          <div className="rounded-theme border border-border px-6 py-5">
+            <div className="text-[16px] leading-[1.5] text-ink/60">
+              Fits your profile
             </div>
-          ))}
+          </div>
+          <div className="rounded-theme border border-border bg-band px-6 py-5">
+            <div className="text-[16px] leading-[1.5] font-semibold tracking-[-0.01em]">
+              Fits your profile, and you know why the system is in play
+            </div>
+          </div>
         </div>
       </div>
-
-      <Caption>
-        Illustrative alerts. No account is named, and in the product every row
-        links to its source and the date it was filed.
-      </Caption>
     </Section>
+  )
+}
+
+/* -------------------------------------------------------------------------- */
+/* 03 — where we look                                                         */
+/* -------------------------------------------------------------------------- */
+
+const LOOKUPS = [
+  {
+    label: 'SEC filings',
+    description:
+      'Disclosed system constraints, systems programs, and capital commitments.',
+  },
+  {
+    label: 'Ownership records',
+    description:
+      'Sponsor activity, hold periods, carve-outs, and acquisitions that reset a roadmap.',
+  },
+  {
+    label: 'Regulatory registers',
+    description:
+      'Sector mandates and audit findings that put a date on a system change.',
+  },
+  {
+    label: 'Hiring patterns',
+    description:
+      'Role sequence, seniority, and the version and module names inside requirements.',
+  },
+]
+
+function WhereWeLook() {
+  return (
+    <Section className="bg-band pt-[120px] pb-[120px]">
+      <SectionMarker index="04" label="Where we look" as="h2" />
+
+      <div className="mt-12">
+        {LOOKUPS.map((l, i) => (
+          <div
+            key={l.label}
+            className={`grid grid-cols-1 gap-x-10 gap-y-2 py-6 lg:grid-cols-[240px_1fr] ${
+              i > 0 ? 'border-t border-border' : ''
+            }`}
+          >
+            <div className="font-mono text-[13px] tracking-wider text-unknown uppercase">
+              {l.label}
+            </div>
+            <p className="text-[16px] leading-[1.6]">{l.description}</p>
+          </div>
+        ))}
+      </div>
+    </Section>
+  )
+}
+
+/* -------------------------------------------------------------------------- */
+/* 04 — the coverage gap                                                      */
+/* -------------------------------------------------------------------------- */
+
+function CoverageGap() {
+  return (
+    <section className="px-6 pt-[120px] pb-[120px]">
+      <div className="mx-auto w-full max-w-content">
+        <SectionMarker index="05" label="The coverage gap" centered as="h2" />
+      </div>
+      <div className="mx-auto mt-5 w-full max-w-[600px] text-center">
+        <p className="text-[16px] leading-[1.6] text-ink/70">
+          Below a certain size, the vendor does not assign a direct account
+          team. No partner has been handed the introduction and no relationship
+          is already in place. That is where the coverage gap is widest across
+          the US mid-market, and where reading the public evidence is worth the
+          most.
+        </p>
+      </div>
+    </section>
   )
 }

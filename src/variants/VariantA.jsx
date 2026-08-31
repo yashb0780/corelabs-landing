@@ -1,7 +1,22 @@
 import { Fragment } from 'react'
+import {
+  Caption,
+  Cta,
+  HeroActions,
+  HeroHeading,
+  HeroSubhead,
+  IcpSection,
+  Section,
+  SectionHeading,
+  SectionMarker,
+  ThreeStates,
+} from './_shared.jsx'
 
 /**
  * Variant A — "The absence".
+ *
+ * Dark-first. Near-black ground, elevated surfaces, very low contrast borders
+ * and a single indigo accent used only for state and the primary action.
  *
  * Everything here is on-token: colour comes from text-ink / bg-band /
  * border-border / text-confirmed / text-inferred / text-unknown, type from
@@ -16,6 +31,47 @@ import { Fragment } from 'react'
  * survives across a band edge instead of doubling.
  */
 
+/* Linear: dark-first. Light mode is a clean inversion on a #FAFAFA ground,
+   not a different design. The indigo accent is the only colour in either mode
+   that is not text, surface or signal. */
+export const theme = {
+  defaultMode: 'dark',
+  dark: {
+    '--bg': '#08090A',
+    '--band': '#0D0E10',
+    '--surface': '#141516',
+    '--ink': '#E8E8E8',
+    '--unknown': '#8A8F98',
+    '--border': 'rgba(255, 255, 255, 0.08)',
+    '--accent': '#5E6AD2',
+    '--on-accent': '#FFFFFF',
+    '--confirmed': '#4CB782',
+    '--inferred': '#F2994A',
+    '--cta-bg': '#101113',
+    '--cta-fg': '#E8E8E8',
+    '--radius': '6px',
+    '--elevation': 'inset 0 1px 0 rgba(255, 255, 255, 0.04)',
+    '--display-tracking': '-0.03em',
+  },
+  light: {
+    '--bg': '#FAFAFA',
+    '--band': '#F1F1F2',
+    '--surface': '#FFFFFF',
+    '--ink': '#08090A',
+    '--unknown': '#6B7080',
+    '--border': 'rgba(0, 0, 0, 0.09)',
+    '--accent': '#5E6AD2',
+    '--on-accent': '#FFFFFF',
+    '--confirmed': '#0F7B4F',
+    '--inferred': '#B45309',
+    '--cta-bg': '#08090A',
+    '--cta-fg': '#E8E8E8',
+    '--radius': '6px',
+    '--elevation': 'inset 0 1px 0 rgba(255, 255, 255, 0.7)',
+    '--display-tracking': '-0.03em',
+  },
+}
+
 /* Gap between resolution rows. Kept in JS because the connector spine has to
    bridge it to stay continuous between rows. */
 const ROW_GAP = 24
@@ -24,48 +80,13 @@ export default function VariantA() {
   return (
     <div className="font-sans text-ink">
       <Hero />
+      <IcpSection />
       <Comparison />
       <Resolution />
-      <ThreeStates />
+      <ThreeStates index="04" />
       <StartingWithSap />
       <Cta />
     </div>
-  )
-}
-
-/* -------------------------------------------------------------------------- */
-/* Layout primitives                                                          */
-/* -------------------------------------------------------------------------- */
-
-function Section({ id, className = '', children }) {
-  return (
-    <section id={id} className={`scroll-mt-16 px-6 ${className}`}>
-      <div className="mx-auto w-full max-w-content">{children}</div>
-    </section>
-  )
-}
-
-/* A 1px full-width rule plus a mono eyebrow. Opens every numbered section. */
-function SectionMarker({ index, label, centered = false }) {
-  return (
-    <>
-      <div aria-hidden className="h-px w-full bg-border" />
-      <p
-        className={`mt-5 font-mono text-[13px] tracking-wider text-unknown uppercase ${
-          centered ? 'text-center' : ''
-        }`}
-      >
-        {index} / {label}
-      </p>
-    </>
-  )
-}
-
-function SectionHeading({ children }) {
-  return (
-    <h2 className="max-w-3xl text-[32px] leading-[1.2] font-semibold tracking-[-0.02em]">
-      {children}
-    </h2>
   )
 }
 
@@ -77,11 +98,11 @@ function SectionHeading({ children }) {
    section 3: no company is named and nothing here is presented as a statistic. */
 const SIGNALS = [
   { source: 'JOB POSTING', fragment: 'Senior ABAP role, S/4HANA conversion', age: '2d' },
-  { source: '10-K', fragment: 'ERP modernization named a priority', age: '6d' },
+  { source: '10-K', fragment: 'Systems investment named in filing', age: '6d' },
   { source: 'LINKEDIN', fragment: 'New VP of Enterprise Applications', age: '11d' },
   { source: 'PRESS RELEASE', fragment: 'Second manufacturing site announced', age: '18d' },
-  { source: 'JOB POSTING', fragment: 'SAP MM and WM roles opened together', age: '24d' },
-  { source: 'SEC FILING', fragment: 'Reshoring commitment in risk factors', age: '31d' },
+  { source: 'JOB POSTING', fragment: 'Integration roles, no conversion wording', age: '24d' },
+  { source: 'SEC FILING', fragment: 'New production site disclosed', age: '31d' },
 ]
 
 function Hero() {
@@ -89,31 +110,19 @@ function Hero() {
     <Section className="pt-[120px] pb-[120px]">
       <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-[3fr_2fr] lg:items-center lg:gap-x-16">
         <div>
-          <h1 className="max-w-[16ch] text-[40px] leading-[1.05] font-semibold tracking-[-0.02em] sm:text-[56px] lg:text-[64px]">
-            Every lead gen tool was built for someone else.
-          </h1>
-
-          <p className="mt-6 max-w-[480px] text-[16px] leading-[1.6] text-ink/70">
-            LeadPlus is built for system integrators in the ERP space. Not
-            firmographics. Not generic intent keywords. What a company is
-            actually running, what kind of project it is, and how far along they
-            already are.
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-            <a
-              href="#how-it-works"
-              className="rounded-md bg-ink px-5 py-3 text-[15px] font-medium text-bg transition-opacity hover:opacity-90"
-            >
-              See how it works
-            </a>
-            <a
-              href="#three-states"
-              className="border-b border-border pb-0.5 text-[15px] text-ink/70 transition-colors hover:border-ink hover:text-ink"
-            >
-              How we source signals
-            </a>
-          </div>
+          <HeroHeading className="max-w-[16ch]">
+            Nobody built a lead gen tool for firms like yours.
+          </HeroHeading>
+          <HeroSubhead>
+            ERP service firms run narrow practices. Specific industries,
+            specific modules, specific kinds of project, and a bench that is
+            genuinely good at some of it and not the rest. Every tool built for
+            you knows your market as an industry code and a headcount.
+          </HeroSubhead>
+          <HeroActions
+            primary={{ href: '#how-it-works', label: 'See how it works' }}
+            secondary={{ href: '#three-states', label: 'How we source signals' }}
+          />
         </div>
 
         <SignalFeed />
@@ -126,7 +135,7 @@ function Hero() {
    and age columns align down the whole panel. */
 function SignalFeed() {
   return (
-    <div className="border border-border bg-bg">
+    <div className="overflow-hidden rounded-theme border border-border bg-surface shadow-[var(--elevation)]">
       <div className="border-b border-border px-4 py-3 font-mono text-[13px] tracking-wider text-unknown uppercase">
         Signal feed
       </div>
@@ -171,14 +180,14 @@ const NEEDED = [
   'The specific version and release they are running, with a dated source',
   'Whether it is a conversion, a rebuild, or a single site rollout',
   'Whether they are in evaluation, design, or have already chosen',
-  'Which regulatory or market pressure is forcing the timeline',
+  'Which way they are heading, and whether the evidence says so at all',
   'Who inside the account is doing the work',
 ]
 
 function Comparison() {
   return (
     <Section className="bg-band pt-[120px] pb-[120px]">
-      <SectionMarker index="01" label="The gap" />
+      <SectionMarker index="02" label="The gap" />
 
       {/* Subgrid keeps the two columns row-aligned on desktop while leaving each
           column a single container, so the mobile stack reads as two lists
@@ -186,7 +195,7 @@ function Comparison() {
       <div className="mt-12 grid grid-cols-1 gap-y-10 lg:grid-cols-2 lg:gap-y-0 lg:[grid-template-rows:repeat(6,auto)]">
         {/* Left: plain, no box. */}
         <div className="lg:row-span-6 lg:grid lg:grid-rows-subgrid">
-          <h2 className="pr-8 pt-5 pb-5 text-[20px] leading-[1.3] font-semibold tracking-[-0.01em] text-ink/60">
+          <h2 className="pr-8 pt-5 pb-5 font-heading text-[20px] leading-[1.3] font-semibold tracking-[-0.01em] text-ink/60">
             What generic lead gen gives you
           </h2>
           {GENERIC.map((t) => (
@@ -200,9 +209,9 @@ function Comparison() {
         </div>
 
         {/* Right: bordered and filled so it reads as the answer. */}
-        <div className="border border-border bg-bg lg:row-span-6 lg:grid lg:grid-rows-subgrid">
-          <h2 className="px-6 pt-5 pb-5 text-[20px] leading-[1.3] font-semibold tracking-[-0.01em]">
-            What an SI actually needs to bid
+        <div className="rounded-theme border border-border bg-surface shadow-[var(--elevation)] lg:row-span-6 lg:grid lg:grid-rows-subgrid">
+          <h2 className="px-6 pt-5 pb-5 font-heading text-[20px] leading-[1.3] font-semibold tracking-[-0.01em]">
+            What a specialist practice needs
           </h2>
           {NEEDED.map((t) => (
             <div
@@ -214,7 +223,78 @@ function Comparison() {
           ))}
         </div>
       </div>
+
+      <SourceCoverage />
     </Section>
+  )
+}
+
+const COVERAGE = [
+  {
+    label: 'Public filings',
+    description:
+      '10-K and 10-Q language on system constraints, systems programs, and capital allocation.',
+    cadence: 'Quarterly',
+  },
+  {
+    label: 'Engineering roles',
+    description:
+      'Version numbers, module names, and contractor scope inside job requirements.',
+    cadence: 'Weekly',
+  },
+  {
+    label: 'Leadership moves',
+    description:
+      'New CIOs, enterprise architects, and program leads, and what they did before.',
+    cadence: 'Weekly',
+  },
+  {
+    label: 'Partner announcements',
+    description: 'Press releases, case studies, and speaking slots.',
+    cadence: 'Continuous',
+  },
+  {
+    label: 'Ownership events',
+    description:
+      'Sponsor changes, acquisitions, and carve-outs that reset the systems roadmap.',
+    cadence: 'Continuous',
+  },
+]
+
+/* One grid so the label and cadence columns align down the whole panel. */
+function SourceCoverage() {
+  return (
+    <div className="mt-12 overflow-hidden rounded-theme border border-border bg-surface shadow-[var(--elevation)]">
+      <div className="border-b border-border px-5 py-3 font-mono text-[13px] tracking-wider text-unknown uppercase">
+        Where the signal comes from
+      </div>
+      <div className="grid grid-cols-1 leading-[1.5] sm:grid-cols-[max-content_1fr_max-content]">
+        {COVERAGE.map((c, i) => {
+          /* Stacked below sm, the three cells of a row are one visual group, so
+             only the first carries the separator. From sm up they are a real
+             grid row and all three need it to draw one continuous hairline. */
+          const first = i > 0 ? 'border-t border-border' : ''
+          const rest = i > 0 ? 'border-border sm:border-t' : ''
+          return (
+            <Fragment key={c.label}>
+              <div
+                className={`${first} px-5 pt-4 font-mono text-[13px] tracking-wider uppercase sm:w-[200px] sm:py-4 sm:pr-4`}
+              >
+                {c.label}
+              </div>
+              <div className={`${rest} px-5 pt-2 text-[14px] sm:px-0 sm:py-4 sm:pr-4`}>
+                {c.description}
+              </div>
+              <div
+                className={`${rest} px-5 pt-1 pb-4 font-mono text-[12px] text-unknown sm:py-4 sm:pl-0 sm:text-right`}
+              >
+                {c.cadence}
+              </div>
+            </Fragment>
+          )
+        })}
+      </div>
+    </div>
   )
 }
 
@@ -234,7 +314,7 @@ const RESOLUTIONS = [
     label: 'Project type',
     value: 'Brownfield conversion',
     explanation:
-      'Conversion, greenfield rebuild, single site rollout, or modernization without migration. Four different proposals, four different price points.',
+      'Conversion, greenfield rebuild, single site rollout, or extension without migration. Four different pieces of work, and only some of them are yours.',
     confidence: 'inferred',
   },
   {
@@ -245,10 +325,10 @@ const RESOLUTIONS = [
     confidence: 'inferred',
   },
   {
-    label: 'Pressure',
-    value: 'Compliance deadline, defense supply chain',
+    label: 'Context',
+    value: 'Vendor support date approaching',
     explanation:
-      'Maintenance end dates, compliance mandates, tariff exposure, and reshoring commitments. The macro reason the timeline is not optional.',
+      'Maintenance dates, compliance mandates, ownership changes, and trade exposure. Why the system is in play, reported without a view on which direction it should go.',
     confidence: 'confirmed',
   },
 ]
@@ -256,11 +336,9 @@ const RESOLUTIONS = [
 function Resolution() {
   return (
     <Section id="how-it-works" className="pt-[120px]">
-      <SectionMarker index="02" label="What we resolve" />
+      <SectionMarker index="03" label="What we resolve" />
       <div className="mt-5">
-        <SectionHeading>
-          Four things we resolve before an RFP exists
-        </SectionHeading>
+        <SectionHeading>Four things we resolve about an account</SectionHeading>
       </div>
 
       <div className="mt-16 grid grid-cols-1 gap-y-10 lg:grid-cols-[2fr_3fr] lg:items-center lg:gap-x-10 lg:gap-y-0">
@@ -288,18 +366,18 @@ function Resolution() {
         </div>
       </div>
 
-      <p className="mt-8 text-[14px] leading-[1.6] text-unknown">
+      <Caption>
         Illustrative account. Every field in the product carries a source and a
         date.
-      </p>
+      </Caption>
     </Section>
   )
 }
 
 function AccountBlock() {
   return (
-    <div className="border border-border bg-bg p-6">
-      <h3 className="text-[20px] leading-[1.3] font-semibold tracking-[-0.01em]">
+    <div className="rounded-theme border border-border bg-surface p-6 shadow-[var(--elevation)]">
+      <h3 className="font-heading text-[20px] leading-[1.3] font-semibold tracking-[-0.01em]">
         Midwest industrial manufacturer
       </h3>
       <dl className="mt-4 space-y-1.5 font-mono text-[13px] text-ink/60">
@@ -308,7 +386,7 @@ function AccountBlock() {
         <div>Ohio</div>
       </dl>
       <div className="mt-6 border-t border-border pt-4 text-right font-mono text-[13px] text-ink/60">
-        ICP FIT 92
+        PRACTICE FIT 92
       </div>
     </div>
   )
@@ -337,7 +415,7 @@ function ResolutionRow({ label, value, explanation, confidence, position }) {
       </div>
 
       {/* Panel */}
-      <div className="flex-1 border border-border bg-bg p-5">
+      <div className="flex-1 rounded-theme border border-border bg-surface p-5 shadow-[var(--elevation)]">
         <div className="flex items-start justify-between gap-4">
           <span className="font-mono text-[13px] tracking-wider text-unknown uppercase">
             {label}
@@ -369,45 +447,6 @@ function ConfidencePill({ confidence }) {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Section 4 — three states                                                   */
-/* -------------------------------------------------------------------------- */
-
-const STATES = [
-  { label: 'Confirmed legacy', className: 'text-confirmed' },
-  { label: 'Confirmed modern', className: 'text-confirmed' },
-  { label: 'Unknown', className: 'text-unknown' },
-]
-
-function ThreeStates() {
-  return (
-    <Section id="three-states" className="pt-[120px] pb-[120px]">
-      <SectionMarker index="03" label="Confidence" />
-      <div className="mt-5">
-        <SectionHeading>Three states, never two.</SectionHeading>
-      </div>
-
-      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
-        {STATES.map((s) => (
-          <div key={s.label} className="border border-border px-6 py-8">
-            <div
-              className={`text-[18px] leading-[1.35] font-semibold tracking-[-0.01em] ${s.className}`}
-            >
-              {s.label}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <p className="mt-10 max-w-[62ch] text-[16px] leading-[1.6] text-ink/70">
-        The absence of evidence that a company has modernized is not proof that
-        they have not. It usually means no data. We label those accounts unknown
-        rather than counting them to make a list look bigger.
-      </p>
-    </Section>
-  )
-}
-
-/* -------------------------------------------------------------------------- */
 /* Section 5 — starting with SAP                                              */
 /* -------------------------------------------------------------------------- */
 
@@ -415,61 +454,16 @@ function StartingWithSap() {
   return (
     <section className="bg-band px-6 py-[120px]">
       <div className="mx-auto w-full max-w-content">
-        <SectionMarker index="04" label="Scope" centered />
+        <SectionMarker index="05" label="Scope" centered />
       </div>
       <div className="mx-auto mt-5 w-full max-w-[500px] text-center">
-        <h2 className="text-[32px] leading-[1.2] font-semibold tracking-[-0.02em]">
+        <h2 className="font-heading text-[32px] leading-[1.2] font-semibold tracking-display">
           Starting with SAP
         </h2>
         <p className="mt-6 text-[16px] leading-[1.6] text-ink/70">
           The signal layer is vendor agnostic. We are starting where the
           mid-market install base is largest and the coverage gap is widest, and
           expanding across the ERP landscape from there.
-        </p>
-      </div>
-    </section>
-  )
-}
-
-/* -------------------------------------------------------------------------- */
-/* Section 6 — CTA                                                            */
-/* -------------------------------------------------------------------------- */
-
-function Cta() {
-  return (
-    <section className="bg-ink px-6 py-[120px] text-bg">
-      <div className="mx-auto w-full max-w-content">
-        <h2 className="max-w-[20ch] text-[32px] leading-[1.2] font-semibold tracking-[-0.02em]">
-          Tell us your ICP. We will show you what we find.
-        </h2>
-
-        {/* NOTE: not wired to a backend yet — there is no submit handler and no
-            endpoint. Hook this up before the site goes live. */}
-        <form
-          className="mt-10 flex max-w-[520px] flex-col gap-3 sm:flex-row"
-          onSubmit={(e) => e.preventDefault()}
-        >
-          <label htmlFor="cta-email" className="sr-only">
-            Work email
-          </label>
-          <input
-            id="cta-email"
-            type="email"
-            name="email"
-            required
-            placeholder="Work email"
-            className="flex-1 rounded-md border border-bg/25 bg-transparent px-4 py-3 text-[15px] text-bg placeholder:text-bg/40 focus:border-bg/60 focus:outline-none"
-          />
-          <button
-            type="submit"
-            className="rounded-md bg-bg px-5 py-3 text-[15px] font-medium text-ink transition-opacity hover:opacity-90"
-          >
-            Request access
-          </button>
-        </form>
-
-        <p className="mt-4 text-[14px] leading-[1.6] text-bg/50">
-          Early access, limited slots.
         </p>
       </div>
     </section>

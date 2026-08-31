@@ -1,49 +1,91 @@
 /* ---------------------------------------------------------------------------
    LeadPlus marketing site — design tokens
-   Single source of truth for colour, type and layout.
-   Never hardcode a colour or font elsewhere in this repo. See CLAUDE.md.
+
+   This file is the FALLBACK layer. It defines every slot a variant can use and
+   gives each a neutral default. Variants override the slots at runtime by
+   setting the custom properties on :root (see the theme objects exported from
+   each src/variants/Variant*.jsx and applied in src/App.jsx).
+
+   Never hardcode a colour, font, or radius anywhere else in this repo. Use the
+   token-backed Tailwind utilities, or var(--token) directly. See CLAUDE.md.
    --------------------------------------------------------------------------- */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..700;1,300..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap');
 
 :root {
-  /* Typeface */
+  /* Type stacks */
   --font-display: 'Inter Tight', ui-sans-serif, system-ui, -apple-system,
     'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  /* Used for sources, dates and labels. System stack on purpose: it needs no
-     extra network request and reads as tooling rather than as branding. */
+  /* Headings. Defaults to the body face; serif variants override it. */
+  --font-heading-stack: var(--font-display);
+  /* Sources, dates and labels. System stack on purpose: no extra network
+     request, and it reads as tooling rather than as branding. */
   --font-code: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
     'Liberation Mono', monospace;
+  --display-tracking: -0.02em;
 
   /* Surfaces & text */
   --ink: #1A1A1A;
   --bg: #FFFFFF;
   --band: #FAFAFA;
   --border: #E8E8E8;
+  /* Elevated card fill. Defaults to the page ground. */
+  --surface: var(--bg);
 
   /* Signal colours — provenance of a data point */
   --confirmed: #0F7B4F;
   --inferred: #B45309;
   --unknown: #8A8A8A;
 
+  /* Accents. --accent carries the primary action; 2–4 are for variants that
+     use colour functionally across a set. All default to the ink so a variant
+     that wants no colour simply leaves them alone. */
+  --accent: var(--ink);
+  --on-accent: var(--bg);
+  --accent-2: var(--accent);
+  --accent-3: var(--accent);
+  --accent-4: var(--accent);
+
+  /* The closing CTA band. Explicit slots so each theme decides it deliberately
+     rather than inheriting an inversion in dark mode. */
+  --cta-bg: var(--ink);
+  --cta-fg: var(--bg);
+
+  /* Shape */
+  --radius: 6px;
+  --elevation: none;
+  /* Variants may define one decorative gradient; default is none. */
+  --hero-gradient: none;
+
   /* Layout */
   --content-max: 1140px;
 }
 
-/* Expose the tokens to Tailwind as theme values so utilities stay on-token:
-   text-ink, bg-band, border-border, text-confirmed, max-w-content, font-sans … */
+/* Expose the tokens to Tailwind so utilities stay on-token: text-ink, bg-band,
+   bg-surface, border-border, text-accent, text-confirmed, max-w-content,
+   font-sans, font-heading, rounded-theme, tracking-display … */
 @theme inline {
   --font-sans: var(--font-display);
+  --font-heading: var(--font-heading-stack);
   --font-mono: var(--font-code);
+  --tracking-display: var(--display-tracking);
 
   --color-ink: var(--ink);
   --color-bg: var(--bg);
   --color-band: var(--band);
   --color-border: var(--border);
+  --color-surface: var(--surface);
 
   --color-confirmed: var(--confirmed);
   --color-inferred: var(--inferred);
   --color-unknown: var(--unknown);
 
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+  --color-accent-4: var(--accent-4);
+
+  --radius-theme: var(--radius);
   --container-content: var(--content-max);
 }

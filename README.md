@@ -32,23 +32,27 @@ src/
   design/
     tokens.css          design tokens — the single source of truth
   variants/
-    _shared.jsx         primitives shared by variants B–E
-    VariantA.jsx        landing page variant A
-    VariantB.jsx        "The paper trail"
-    VariantC.jsx        "The deal shape"
-    VariantD.jsx        "The clock"
-    VariantE.jsx        "The pressure map"
+    _shared.jsx         primitives and sections shared by every variant
+    VariantA.jsx        "The absence"
+    VariantB.jsx        "The deal shape"
+    VariantC.jsx        "Direction"
+    VariantD.jsx        "The pressure map"
 ```
 
-`VariantA.jsx` is the structural reference and keeps its own local copies of
-the shared primitives, so it stands alone. Variants B–E import them from
-`_shared.jsx`, which is also what guarantees the "Three states, never two"
-block is identical across all five.
+All four variants import their primitives from `_shared.jsx`, which is what
+guarantees the "How we learn your ICP" section, the "Three states, never two"
+block and the closing CTA are identical across every variant.
 
-## Design tokens
+## Design tokens and theming
 
-All colour, type and layout values live in `src/design/tokens.css`. Nothing else
-in the repo should hardcode a colour or a font.
+`src/design/tokens.css` is the fallback layer: it declares every token slot and
+gives each a neutral default. Each variant then ships its own `theme` export
+with a `light` and a `dark` palette that overrides those slots at runtime, so
+the four variants share one structure but no visual identity. The light/dark
+toggle sits in the top bar next to the variant switcher; the choice lives in
+React state only and is not persisted.
+
+Nothing outside a variant's `theme` object should hardcode a colour or a font.
 
 | Token             | Value     | Use                                |
 | ----------------- | --------- | ---------------------------------- |
@@ -68,8 +72,10 @@ directly: `text-ink`, `bg-band`, `border-border`, `text-confirmed`,
 
 ## Variants
 
-The site is being explored as five landing page variants, A through E. Pick one
-from the dropdown in the top-right corner. All five are built.
+The site is being explored as four landing page variants, A through D. Pick one
+from the dropdown in the top-right corner. All four are built, and each carries
+its own visual identity: its own light and dark palettes, type, radius and
+border treatment.
 
 To add another: create `src/variants/VariantX.jsx` with a default export, then
 point its entry in the `VARIANTS` registry in `src/App.jsx` at the component.
