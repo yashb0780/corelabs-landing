@@ -29,18 +29,35 @@ a `theme` with a `light` and a `dark` map of token overrides, plus an optional
 in those theme objects and nowhere else. Dark mode is designed per variant, not
 derived by inverting the light palette.
 
-**Messaging is fit, not urgency.** Never imply one ERP direction is better than
-another: migrating, replatforming, and staying and extending are all legitimate,
-and we surface them without editorialising. Never frame the reader as at risk of
-losing a deal. The same language has to serve firms that implement and migrate,
-firms that support and extend, and firms selling an alternative platform,
-without naming which is which.
+**Messaging is SAP first, with timing and without pressure.**
+- LeadPlus is built for SAP partners: firms that implement and migrate, firms
+  that support and extend, and firms selling an alternative platform. Lead with
+  SAP. IT services and cybersecurity may appear only as where we are headed,
+  never as live.
+- Show when a transformation is taking shape (phase, project type, stack,
+  stakeholders) in calm language. Never frame the reader as losing deals,
+  falling behind, or short on time. No scarcity lines such as "limited slots".
+- Never imply one SAP direction (converting, rebuilding, replatforming, or
+  staying and extending) is better than another.
+- Do not name competitor tools. Call them generic lead gen tools.
+- Activation: we may say the rep gets the buying group, the angle, and an
+  audience ready to run, and that we run and track campaigns together with the
+  customer. Never imply a fully self-serve campaign engine, and never promise a
+  number of meetings or results.
+- Do not mention design partners, existing customers, or pilots, directly or by
+  implication.
 
-**No fabricated statistics, testimonials, or customer logos anywhere on the
-site.** Do not invent numbers, percentages, ROI figures, quotes, company names,
-headshots, or logo walls — not even as placeholder or lorem-ipsum content. If a
-section calls for proof, either leave it empty with a clear `TODO` marker or ask
-for real, sourced material.
+**Each variant keeps its own angle.** A is the gap, B is deal shape, C is
+direction, D is context. Refresh each with the current messaging, but never
+merge them into one story.
+
+**No fabricated proof.** No invented statistics, percentages, ROI figures,
+quotes, testimonials, real company names, headshots, or logo walls. Not even as
+placeholder content, except unnamed example accounts captioned as illustrative.
+Third-party statistics and partner quotes stay off the site until they are
+sourced and cleared. Example accounts are allowed only when the company is
+unnamed and the section is captioned as illustrative. If a section needs real
+proof, leave a clear TODO marker or ask for real, sourced material.
 
 ## Layout
 
