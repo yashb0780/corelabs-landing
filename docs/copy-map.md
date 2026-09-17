@@ -17,7 +17,7 @@ Where the deck lands:
 - Problem slide and "What we read": C-3 The gap
 - Rep card (Score, Why now, Who, Angle): C-4, A-5, D-4
 - Four pillars: D-5
-- Learn one vertical, repeat across many: C-6
+- Learn one vertical, repeat across many: shared section S4 (all variants)
 
 Apply order: Shared sections, then A, B, C, D. One step at a time,
 reviewed at localhost, committed after each.
@@ -51,6 +51,144 @@ reviewed at localhost, committed after each.
 - Email placeholder and label: Keep ("Work email")
 - Button: Keep ("Request access")
 - Small print: "Early access. We set up your profile with you."
+
+### S4. Scope (component: Scope, shown directly before the CTA)
+
+- Eyebrow: "Scope" (renders as "{NN} / Scope")
+- Headline: "Learn one vertical. Repeat across many."
+- Body: "We start with SAP services: migration, clean core, RISE, and integration. The same method of learning a vertical deeply carries to the next, with IT services and cybersecurity where we are headed."
+
+---
+
+## Variant A: Deal shape
+
+### A-1. Hero
+
+- Headline (two lines): "Revenue platform," / "purpose built for SAP partners."
+- Subhead: "A brownfield conversion, a greenfield rebuild, a single site rollout, and a clean core extension want four different benches. We read the shape from SAP evidence before anyone has written a brief."
+- Primary button: Keep ("See how we classify")
+
+### A-2. How it works
+
+Shared (S1).
+
+### A-3. Four shapes
+
+- Eyebrow: Keep ("02 / Four shapes")
+- Practice panel: Keep header ("Your practice")
+  - Keep ("Industry": "Logistics and distribution")
+  - "Module focus": "EWM, TM"
+  - Keep ("Project type": "Single site rollout")
+- Match rows: Keep all three
+- Caption: Keep
+- Shape cards:
+  - **"Brownfield conversion"**
+    - "ECC is converted to S/4HANA in place, with its history and custom code carried forward."
+    - Signals we read: "Conversion wording in SAP role requirements"; "Existing module names retained"; "Long-tenure ABAP development staff"
+    - Keep ("For your bid: Custom code remediation is the scope driver.")
+  - **"Greenfield rebuild"**
+    - "S/4HANA is stood up fresh and the business moves onto redesigned processes."
+    - Signals we read: "Process redesign language"; "ERP leadership hired from outside"; "Parallel environment roles"
+    - Keep ("For your bid: Process design capacity matters more than remediation.")
+  - **"Single site rollout"**
+    - Keep definition, signals, and bid line
+  - **"Extension without migration"**
+    - "The ECC core stays where it is while integration, data, and surrounding systems are modernized around it."
+    - Signals we read: "Integration and BTP roles"; "Clean core and data platform language"; "No conversion wording anywhere"
+    - Keep ("For your bid: The core is not in play. Bid the edges.")
+
+### A-4. Phase
+
+- Eyebrow, timeline stages, group labels: Keep
+- Body: "A transformation has a shape and a phase. The earlier the phase, the more the shape has to be read rather than looked up. We read it from hiring sequence, leadership moves, and partner activity either way."
+
+### A-5. What the rep gets
+
+- Eyebrow: "04 / What the rep gets"
+- Cards:
+  - **"Why now"**: "Shape and phase show whether an account is forming a decision, read from hiring sequence, leadership moves, and partner activity rather than a single signal."
+  - **"Who"**: "A conversion needs remediation depth. A rebuild needs process design. You see who arrived on their side and what they have done before, so you staff the right bench."
+  - **"The angle"**: "The same install base supports very different proposals. Shape sets the angle, and the range, long before anyone asks you for a number."
+
+### A-6. Confidence
+
+Shared (S2). Eyebrow 05.
+
+### A-7. Scope
+
+Shared (S4). Eyebrow 06.
+
+### A-8. CTA
+
+Shared (S3).
+
+---
+
+## Variant B: Direction
+
+### B-1. Hero
+
+- Headline: "Revenue platform, purpose built for SAP partners."
+- Subhead: "SAP customers on the same release are moving in different directions: converting to S/4HANA, replatforming, or staying on ECC and extending. We read which, from public evidence, without taking a side."
+- Primary button: Keep ("See how we read direction")
+
+### B-2. How it works
+
+Shared (S1).
+
+### B-3. Reading direction
+
+- Eyebrow: Keep
+- Timeline markers (label / source tag):
+  - "First SAP contractor role posted" / "JOB POSTING"
+  - "ERP director hired from a consultancy" / "LINKEDIN"
+  - "Clean core and integration roles appear" / "JOB POSTING"
+  - Keep ("Systems investment language enters the filing" / "10-K")
+  - "SI activity on the account" / "PRESS RELEASE"
+  - Keep ("Direction stated outright" / "PUBLIC")
+- Region label: Keep ("where LeadPlus operates")
+- Caption: "Illustrative sequence. The same signals appear whether a company is converting, replatforming, or staying and extending. What changes is what they say."
+- Direction lanes:
+  - Start card: Keep ("Starting point") / "ECC today"
+  - "Converting to S/4HANA": "Conversion wording in roles"; "S/4HANA and RISE hiring"
+  - Keep ("Replatforming": "A different platform named in roles"; "Parallel environment hiring")
+  - "Staying and extending": "Integration and BTP roles"; "Support contract renewed"
+- Caption: Keep ("We report the direction. Which of these is your opportunity depends on what you do.")
+
+### B-4. What the signals say
+
+- Eyebrow: Keep
+- Signal rows (signal / source / direction):
+  - "Conversion wording in SAP role requirements" / "JOB POSTING" / "CONVERT TO S/4HANA"
+  - Keep ("A different platform named in requirements" / "JOB POSTING" / "REPLATFORM")
+  - "Integration and BTP roles, no conversion wording" / "JOB POSTING" / "STAY AND EXTEND"
+  - Keep ("Support and enhancement contract renewed" / "PRESS RELEASE" / "STAY AND EXTEND")
+  - Keep ("Systems investment language enters the filing" / "10-K" / "NOT STATED")
+  - "ERP director hired from a consultancy" / "LINKEDIN" / "NOT STATED"
+- Caption: "Illustrative signals. No single signal makes a decision. We report the direction the evidence supports, including when it supports none."
+
+### B-5. Always on
+
+- Eyebrow: "04 / Always on"
+- Body: "Generic lead gen tools make you re-run a search and diff the results yourself. We watch every account that matches your practice, all the time: SAP hiring, leadership moves, filings, and partner activity. When something changes, you hear about it with the source, the date, the people involved, and what it does or does not say about direction."
+- Alerts header: Keep ("Alerts")
+- Alert rows:
+  - Keep ("Midwest industrial manufacturer" / "Integration roles opened, no conversion wording" / "2d")
+  - "Southeast food processor" / "S/4HANA and RISE roles posted" / "9d"
+  - "Regional building products group" / "New ERP director, ran a conversion before" / "16d"
+- Caption: Keep
+
+### B-6. Confidence
+
+Shared (S2). Eyebrow 05.
+
+### B-7. Scope
+
+Shared (S4). Eyebrow 06.
+
+### B-8. CTA
+
+Shared (S3).
 
 ---
 
@@ -117,135 +255,9 @@ Shared (S2). Eyebrow 04.
 
 ### C-6. Scope
 
-- Eyebrow: Keep ("05 / Scope")
-- Headline: "Learn one vertical. Repeat across many."
-- Body: "We start with SAP services: migration, clean core, RISE, and integration. The same method of learning a vertical deeply carries to the next, with IT services and cybersecurity where we are headed."
+Shared (S4). Eyebrow 05.
 
 ### C-7. CTA
-
-Shared (S3).
-
----
-
-## Variant A: Deal shape
-
-### A-1. Hero
-
-- Headline (two lines): "Revenue platform," / "purpose built for SAP partners."
-- Subhead: "A brownfield conversion, a greenfield rebuild, a single site rollout, and a clean core extension want four different benches. We read the shape from SAP evidence before anyone has written a brief."
-- Primary button: Keep ("See how we classify")
-
-### A-2. How it works
-
-Shared (S1).
-
-### A-3. Four shapes
-
-- Eyebrow: Keep ("02 / Four shapes")
-- Practice panel: Keep header ("Your practice")
-  - Keep ("Industry": "Logistics and distribution")
-  - "Module focus": "EWM, TM"
-  - Keep ("Project type": "Single site rollout")
-- Match rows: Keep all three
-- Caption: Keep
-- Shape cards:
-  - **"Brownfield conversion"**
-    - "ECC is converted to S/4HANA in place, with its history and custom code carried forward."
-    - Signals we read: "Conversion wording in SAP role requirements"; "Existing module names retained"; "Long-tenure ABAP development staff"
-    - Keep ("For your bid: Custom code remediation is the scope driver.")
-  - **"Greenfield rebuild"**
-    - "S/4HANA is stood up fresh and the business moves onto redesigned processes."
-    - Signals we read: "Process redesign language"; "ERP leadership hired from outside"; "Parallel environment roles"
-    - Keep ("For your bid: Process design capacity matters more than remediation.")
-  - **"Single site rollout"**
-    - Keep definition, signals, and bid line
-  - **"Extension without migration"**
-    - "The ECC core stays where it is while integration, data, and surrounding systems are modernized around it."
-    - Signals we read: "Integration and BTP roles"; "Clean core and data platform language"; "No conversion wording anywhere"
-    - Keep ("For your bid: The core is not in play. Bid the edges.")
-
-### A-4. Phase
-
-- Eyebrow, timeline stages, group labels: Keep
-- Body: "A transformation has a shape and a phase. The earlier the phase, the more the shape has to be read rather than looked up. We read it from hiring sequence, leadership moves, and partner activity either way."
-
-### A-5. What the rep gets
-
-- Eyebrow: "04 / What the rep gets"
-- Cards:
-  - **"Why now"**: "Shape and phase show whether an account is forming a decision, read from hiring sequence, leadership moves, and partner activity rather than a single signal."
-  - **"Who"**: "A conversion needs remediation depth. A rebuild needs process design. You see who arrived on their side and what they have done before, so you staff the right bench."
-  - **"The angle"**: "The same install base supports very different proposals. Shape sets the angle, and the range, long before anyone asks you for a number."
-
-### A-6. Confidence
-
-Shared (S2). Eyebrow 05.
-
-### A-7. CTA
-
-Shared (S3).
-
----
-
-## Variant B: Direction
-
-### B-1. Hero
-
-- Headline: "Revenue platform, purpose built for SAP partners."
-- Subhead: "SAP customers on the same release are moving in different directions: converting to S/4HANA, replatforming, or staying on ECC and extending. We read which, from public evidence, without taking a side."
-- Primary button: Keep ("See how we read direction")
-
-### B-2. How it works
-
-Shared (S1).
-
-### B-3. Reading direction
-
-- Eyebrow: Keep
-- Timeline markers (label / source tag):
-  - "First SAP contractor role posted" / "JOB POSTING"
-  - "ERP director hired from a consultancy" / "LINKEDIN"
-  - "Clean core and integration roles appear" / "JOB POSTING"
-  - Keep ("Systems investment language enters the filing" / "10-K")
-  - "SI activity on the account" / "PRESS RELEASE"
-  - Keep ("Direction stated outright" / "PUBLIC")
-- Region label: Keep ("where LeadPlus operates")
-- Caption: "Illustrative sequence. The same signals appear whether a company is converting, replatforming, or staying and extending. What changes is what they say."
-- Direction lanes:
-  - Start card: Keep ("Starting point") / "ECC today"
-  - "Converting to S/4HANA": "Conversion wording in roles"; "S/4HANA and RISE hiring"
-  - Keep ("Replatforming": "A different platform named in roles"; "Parallel environment hiring")
-  - "Staying and extending": "Integration and BTP roles"; "Support contract renewed"
-- Caption: Keep ("We report the direction. Which of these is your opportunity depends on what you do.")
-
-### B-4. What the signals say
-
-- Eyebrow: Keep
-- Signal rows (signal / source / direction):
-  - "Conversion wording in SAP role requirements" / "JOB POSTING" / "CONVERT TO S/4HANA"
-  - Keep ("A different platform named in requirements" / "JOB POSTING" / "REPLATFORM")
-  - "Integration and BTP roles, no conversion wording" / "JOB POSTING" / "STAY AND EXTEND"
-  - Keep ("Support and enhancement contract renewed" / "PRESS RELEASE" / "STAY AND EXTEND")
-  - Keep ("Systems investment language enters the filing" / "10-K" / "NOT STATED")
-  - "ERP director hired from a consultancy" / "LINKEDIN" / "NOT STATED"
-- Caption: "Illustrative signals. No single signal makes a decision. We report the direction the evidence supports, including when it supports none."
-
-### B-5. Always on
-
-- Eyebrow: "04 / Always on"
-- Body: "Generic lead gen tools make you re-run a search and diff the results yourself. We watch every account that matches your practice, all the time: SAP hiring, leadership moves, filings, and partner activity. When something changes, you hear about it with the source, the date, the people involved, and what it does or does not say about direction."
-- Alerts header: Keep ("Alerts")
-- Alert rows:
-  - Keep ("Midwest industrial manufacturer" / "Integration roles opened, no conversion wording" / "2d")
-  - "Southeast food processor" / "S/4HANA and RISE roles posted" / "9d"
-  - "Regional building products group" / "New ERP director, ran a conversion before" / "16d"
-- Caption: Keep
-
-### B-6. Confidence
-
-Shared (S2). Eyebrow 05.
-
-### B-7. CTA
 
 Shared (S3).
 
@@ -303,6 +315,10 @@ Shared (S1).
 
 Shared (S2). Eyebrow 06.
 
-### D-8. CTA
+### D-8. Scope
+
+Shared (S4). Eyebrow 07.
+
+### D-9. CTA
 
 Shared (S3).

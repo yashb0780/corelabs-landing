@@ -201,6 +201,32 @@ export function ThreeStates({ index, band = false }) {
 }
 
 /* -------------------------------------------------------------------------- */
+/* Scope — every variant's last section before the CTA. Only the eyebrow      */
+/* number and the section background vary between variants. Pass             */
+/* band={false} when the section above is already on the band.               */
+/* -------------------------------------------------------------------------- */
+
+export function Scope({ index, band = true }) {
+  return (
+    <section className={`px-6 py-[120px] ${band ? 'bg-band' : ''}`}>
+      <div className="mx-auto w-full max-w-content">
+        <SectionMarker index={index} label="Scope" centered />
+      </div>
+      <div className="mx-auto mt-5 w-full max-w-[500px] text-center">
+        <h2 className="font-heading text-[32px] leading-[1.2] font-semibold tracking-display">
+          Learn one vertical. Repeat across many.
+        </h2>
+        <p className="mt-6 text-[16px] leading-[1.6] text-ink/70">
+          We start with SAP services: migration, clean core, RISE, and
+          integration. The same method of learning a vertical deeply carries to
+          the next, with IT services and cybersecurity where we are headed.
+        </p>
+      </div>
+    </section>
+  )
+}
+
+/* -------------------------------------------------------------------------- */
 /* CTA — identical across every variant.                                      */
 /* -------------------------------------------------------------------------- */
 

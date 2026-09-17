@@ -6,6 +6,7 @@ import {
   HeroHeading,
   HeroSubhead,
   IcpSection,
+  Scope,
   Section,
   SectionMarker,
   ThreeStates,
@@ -77,6 +78,7 @@ export default function VariantC() {
       <WhatFiresFirst />
       <TrackedAccounts />
       <ThreeStates index="05" band />
+      <Scope index="06" band={false} />
       <Cta />
     </div>
   )

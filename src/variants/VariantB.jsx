@@ -5,6 +5,7 @@ import {
   HeroHeading,
   HeroSubhead,
   IcpSection,
+  Scope,
   Section,
   SectionMarker,
   ThreeStates,
@@ -75,6 +76,7 @@ export default function VariantB() {
       <Phase />
       <WhyScope />
       <ThreeStates index="05" />
+      <Scope index="06" />
       <Cta />
     </div>
   )

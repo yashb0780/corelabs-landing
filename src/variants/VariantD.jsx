@@ -6,6 +6,7 @@ import {
   HeroHeading,
   HeroSubhead,
   IcpSection,
+  Scope,
   Section,
   SectionMarker,
   ThreeStates,
@@ -73,6 +74,7 @@ export default function VariantD() {
       <WhereWeLook />
       <CoverageGap />
       <ThreeStates index="06" band />
+      <Scope index="07" band={false} />
       <Cta />
     </div>
   )
