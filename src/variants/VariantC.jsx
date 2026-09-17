@@ -115,11 +115,11 @@ function Hero() {
 const STATED_X = 77
 
 const WINDOW_MARKERS = [
-  { x: 12, label: 'First contractor role posted', source: 'JOB POSTING' },
-  { x: 25, label: 'Enterprise architect hired', source: 'LINKEDIN' },
-  { x: 38, label: 'Integration tooling appears in the stack', source: 'JOB POSTING' },
+  { x: 12, label: 'First SAP contractor role posted', source: 'JOB POSTING' },
+  { x: 25, label: 'ERP director hired from a consultancy', source: 'LINKEDIN' },
+  { x: 38, label: 'Clean core and integration roles appear', source: 'JOB POSTING' },
   { x: 51, label: 'Systems investment language enters the filing', source: '10-K' },
-  { x: 64, label: 'Program lead role opens', source: 'JOB POSTING' },
+  { x: 64, label: 'SI activity on the account', source: 'PRESS RELEASE' },
   { x: STATED_X, label: 'Direction stated outright', source: 'PUBLIC' },
 ]
 
@@ -204,8 +204,8 @@ function TheWindow() {
 
       <Caption>
         Illustrative sequence. The same signals appear whether a company is
-        modernizing in place, replatforming, or staying and extending. What
-        changes is what they say.
+        converting, replatforming, or staying and extending. What changes is
+        what they say.
       </Caption>
 
       <DirectionLanes />
@@ -220,8 +220,8 @@ const LANE_GAP = 16
    which one is an opportunity depends on what the reader's practice does. */
 const LANES = [
   {
-    name: 'Modernizing in place',
-    signals: ['Conversion wording in roles', 'Existing module names retained'],
+    name: 'Converting to S/4HANA',
+    signals: ['Conversion wording in roles', 'S/4HANA and RISE hiring'],
   },
   {
     name: 'Replatforming',
@@ -229,7 +229,7 @@ const LANES = [
   },
   {
     name: 'Staying and extending',
-    signals: ['Integration and reporting roles', 'Support contract renewed'],
+    signals: ['Integration and BTP roles', 'Support contract renewed'],
   },
 ]
 
@@ -243,7 +243,7 @@ function DirectionLanes() {
               Starting point
             </div>
             <div className="mt-3 text-[20px] leading-[1.3] font-semibold tracking-[-0.01em]">
-              Same system today
+              ECC today
             </div>
           </div>
           {/* Trunk: starting node into the spine, across the grid gap. */}
@@ -356,9 +356,9 @@ function WindowGroup({ markers, label, band = false }) {
    real answer and appears as often as the others. No direction is ranked. */
 const FIRES = [
   {
-    signal: 'Conversion wording in role requirements',
+    signal: 'Conversion wording in SAP role requirements',
     source: 'JOB POSTING',
-    direction: 'MODERNIZE IN PLACE',
+    direction: 'CONVERT TO S/4HANA',
   },
   {
     signal: 'A different platform named in requirements',
@@ -366,7 +366,7 @@ const FIRES = [
     direction: 'REPLATFORM',
   },
   {
-    signal: 'Integration and reporting roles, no conversion wording',
+    signal: 'Integration and BTP roles, no conversion wording',
     source: 'JOB POSTING',
     direction: 'STAY AND EXTEND',
   },
@@ -381,7 +381,7 @@ const FIRES = [
     direction: 'NOT STATED',
   },
   {
-    signal: 'Enterprise architect hired',
+    signal: 'ERP director hired from a consultancy',
     source: 'LINKEDIN',
     direction: 'NOT STATED',
   },
@@ -412,8 +412,8 @@ function WhatFiresFirst() {
       </div>
 
       <Caption>
-        Illustrative signals. We report the direction the evidence supports,
-        including when it supports none.
+        Illustrative signals. No single signal makes a decision. We report the
+        direction the evidence supports, including when it supports none.
       </Caption>
     </Section>
   )
@@ -431,12 +431,12 @@ const ALERTS = [
   },
   {
     account: 'Southeast food processor',
-    signal: 'Systems language added to filing',
+    signal: 'S/4HANA and RISE roles posted',
     age: '9d',
   },
   {
     account: 'Regional building products group',
-    signal: 'New enterprise architect hired',
+    signal: 'New ERP director, ran a conversion before',
     age: '16d',
   },
 ]
@@ -444,15 +444,16 @@ const ALERTS = [
 function TrackedAccounts() {
   return (
     <Section className="pt-[120px] pb-[120px]">
-      <SectionMarker index="04" label="Tracked accounts" as="h2" />
+      <SectionMarker index="04" label="Always on" as="h2" />
 
       <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-x-16">
         <p className="max-w-[52ch] text-[16px] leading-[1.6] text-ink/70">
-          Most tools make you re-run a search and diff the results yourself.
-          Give us the accounts that match your practice and we watch them
-          continuously. When a role opens, a filing changes, or a leader moves,
-          you hear about it in context, with the source and the date attached,
-          and with what it does or does not say about direction.
+          Generic lead gen tools make you re-run a search and diff the results
+          yourself. We watch every account that matches your practice, all the
+          time: SAP hiring, leadership moves, filings, and partner activity.
+          When something changes, you hear about it with the source, the date,
+          the people involved, and what it does or does not say about
+          direction.
         </p>
 
         <div className="overflow-hidden rounded-theme border border-border bg-surface shadow-[var(--elevation)]">

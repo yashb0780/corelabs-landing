@@ -233,7 +233,7 @@ Shared (S1).
 ### C-5. Always on
 
 - Eyebrow: "04 / Always on"
-- Body: "Generic tools make you re-run a search and diff the results yourself. We watch every account that matches your practice, all the time: SAP hiring, leadership moves, filings, and partner activity. When something changes, you hear about it with the source, the date, the people involved, and what it does or does not say about direction."
+- Body: "Generic lead gen tools make you re-run a search and diff the results yourself. We watch every account that matches your practice, all the time: SAP hiring, leadership moves, filings, and partner activity. When something changes, you hear about it with the source, the date, the people involved, and what it does or does not say about direction."
 - Alerts header: Keep ("Alerts")
 - Alert rows:
   - Keep ("Midwest industrial manufacturer" / "Integration roles opened, no conversion wording" / "2d")
