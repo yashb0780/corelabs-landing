@@ -273,7 +273,7 @@ Shared (S1).
   - Keep Trade row
   - Keep Growth row
 - Evidence card: Keep header ("Account" / "Regional building products manufacturer") and column headers
-  - "Support timeline confirmed" / "Running ECC 6.0, mainstream maintenance ends 2027" / "JOB POSTING" / "2026-03-11"
+  - "ECC 6.0 confirmed in hiring" / "Running ECC 6.0, mainstream maintenance ends 2027" / "JOB POSTING" / "2026-03-11"
   - Keep the other three rows
 - Caption: Keep
 

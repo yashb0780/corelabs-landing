@@ -105,9 +105,9 @@ function Hero() {
 const PRESSURES = [
   {
     label: 'Maintenance',
-    title: 'Vendor support end dates',
+    title: 'SAP support timelines',
     description:
-      'A published end date moves a system from a preference into a budget line.',
+      'ECC mainstream maintenance ends in 2027. A published date moves a system from a preference into a budget line.',
   },
   {
     label: 'Compliance',
@@ -172,9 +172,9 @@ function ForcingFunctions() {
    statistic; each row is the kind of dated public record the product cites. */
 const EVIDENCE = [
   {
-    signal: 'Support date published',
-    says: 'Core platform maintenance ends inside the planning horizon',
-    source: 'VENDOR NOTICE',
+    signal: 'ECC 6.0 confirmed in hiring',
+    says: 'Running ECC 6.0, mainstream maintenance ends 2027',
+    source: 'JOB POSTING',
     date: '2026-03-11',
   },
   {
@@ -278,9 +278,9 @@ function WhyThisChanges() {
         <p className="max-w-[52ch] text-[16px] leading-[1.6] text-ink/70">
           An account that fits your profile is a candidate. An account that
           fits and whose system is visibly in play is a conversation you can
-          actually open. The first list is large and mostly static. The second
-          is smaller, moves as the evidence moves, and tells you what the first
-          call is about.
+          actually open. For those accounts, your rep gets why now, the buying
+          group, and the angle, with an audience ready to run. We run and track
+          the first campaigns with you.
         </p>
 
         <div className="flex flex-col gap-4">
@@ -291,7 +291,7 @@ function WhyThisChanges() {
           </div>
           <div className="rounded-theme border border-border bg-band px-6 py-5">
             <div className="text-[16px] leading-[1.5] font-semibold tracking-[-0.01em]">
-              Fits your profile, and you know why the system is in play
+              Fits your profile, with why now, who, and the angle
             </div>
           </div>
         </div>
@@ -306,31 +306,31 @@ function WhyThisChanges() {
 
 const LOOKUPS = [
   {
-    label: 'SEC filings',
+    label: 'Curated vertical database',
     description:
-      'Disclosed system constraints, systems programs, and capital commitments.',
+      'We know how each SAP version, support model, and migration type gets described.',
   },
   {
-    label: 'Ownership records',
+    label: 'Signal interpretation',
     description:
-      'Sponsor activity, hold periods, carve-outs, and acquisitions that reset a roadmap.',
+      'No single signal makes a decision. We read the stack, the deployment model, and the macro pressure as one picture.',
   },
   {
-    label: 'Regulatory registers',
+    label: 'Stakeholder intelligence',
     description:
-      'Sector mandates and audit findings that put a date on a system change.',
+      'A new hire from a consultancy with migration history is a decision forming. We see who arrived and what they have done before.',
   },
   {
-    label: 'Hiring patterns',
+    label: 'Learning loop',
     description:
-      'Role sequence, seniority, and the version and module names inside requirements.',
+      'Which accounts convert, which emails get replies, and which signals hold up. It all feeds back into the score.',
   },
 ]
 
 function WhereWeLook() {
   return (
     <Section className="bg-band pt-[120px] pb-[120px]">
-      <SectionMarker index="04" label="Where we look" as="h2" />
+      <SectionMarker index="04" label="Four pillars, built for SAP" as="h2" />
 
       <div className="mt-12">
         {LOOKUPS.map((l, i) => (
@@ -363,10 +363,10 @@ function CoverageGap() {
       </div>
       <div className="mx-auto mt-5 w-full max-w-[600px] text-center">
         <p className="text-[16px] leading-[1.6] text-ink/70">
-          Below a certain size, the vendor does not assign a direct account
-          team. No partner has been handed the introduction and no relationship
-          is already in place. That is where the coverage gap is widest across
-          the US mid-market, and where reading the public evidence is worth the
+          Below a certain size, SAP does not assign a direct account team. No
+          partner has been handed the introduction and no relationship is
+          already in place. That is where the coverage gap is widest across the
+          US mid-market, and where reading the public evidence is worth the
           most.
         </p>
       </div>
