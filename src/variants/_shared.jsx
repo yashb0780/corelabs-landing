@@ -57,24 +57,24 @@ export function SectionHeading({ children }) {
 
 const ICP_STEPS = [
   {
-    label: 'Domain',
-    title: 'You give us a domain',
-    line: 'Nothing else. No questionnaire, no setup call before you see anything.',
+    label: 'Observe',
+    title: 'We watch every account',
+    line: 'Hiring, news, leadership moves, tech stack, and partner activity. Always on, collected without anyone asking.',
   },
   {
-    label: 'Read',
-    title: 'We read your site',
-    line: 'Services, industries, platforms, case studies, and the language you use to describe your own work.',
+    label: 'Interpret',
+    title: 'We work out what it adds up to',
+    line: 'Signals are compared to what a real SAP project looks like, not to a generic pattern.',
   },
   {
-    label: 'Profile',
-    title: 'You correct the profile',
-    line: 'We show you what we inferred as an editable draft, not a locked setting.',
+    label: 'Prioritize',
+    title: 'The list comes back in order',
+    line: 'Ranked by fit, timing, and strength of evidence, with the reasoning attached.',
   },
   {
-    label: 'Refine',
-    title: 'It sharpens as you use it',
-    line: 'Accounts you keep and accounts you reject both feed back into how the next list is built.',
+    label: 'Activate',
+    title: 'Your rep gets what they need',
+    line: 'The buying group, the angle, and an audience ready to run. We run and track the first campaigns with you.',
   },
 ]
 
@@ -84,19 +84,19 @@ export function IcpSection({ band = false }) {
       id="how-we-learn"
       className={`pt-[120px] pb-[120px] ${band ? 'bg-band' : ''}`}
     >
-      <SectionMarker index="01" label="How we learn your ICP" />
+      <SectionMarker index="01" label="How it works" />
       <div className="mt-5">
         <SectionHeading>
-          The list gets better the longer you use it.
+          What happens before your rep sees anything.
         </SectionHeading>
       </div>
 
       <p className="mt-6 max-w-[62ch] text-[16px] leading-[1.6] text-ink/70">
-        We start from your own website. We read what you build, which industries
-        you name, which modules and platforms you talk about, and which projects
-        you put front and centre, then we turn that into a first profile you can
-        edit. From there we work with you directly, and every account you keep or
-        discard sharpens what comes next.
+        We start from your own website to learn which SAP work you lead with,
+        which industries and modules you name, and which projects you put front
+        and centre. Then we watch every account that matches, read the signals
+        against what a real SAP project looks like, and hand the list back in
+        order with the reasoning attached.
       </p>
 
       {/* Four-step flow. Horizontal from lg up; below that the same sequence
@@ -123,8 +123,8 @@ export function IcpSection({ band = false }) {
       </div>
 
       <p className="mt-8 text-[14px] leading-[1.6] text-unknown">
-        We work alongside you on this, particularly early on. The profile is a
-        starting point, not an answer.
+        Every result makes it sharper. Which accounts convert, which emails get
+        replies, and which signals hold up all feed back into the score.
       </p>
     </Section>
   )
@@ -159,8 +159,8 @@ function FlowConnector() {
 /* -------------------------------------------------------------------------- */
 
 const STATES = [
-  { label: 'Confirmed legacy', className: 'text-confirmed' },
-  { label: 'Confirmed modern', className: 'text-confirmed' },
+  { label: 'Confirmed ECC', className: 'text-confirmed' },
+  { label: 'Confirmed S/4HANA', className: 'text-confirmed' },
   { label: 'Unknown', className: 'text-unknown' },
 ]
 
@@ -172,7 +172,7 @@ export function ThreeStates({ index, band = false }) {
     >
       <SectionMarker index={index} label="Confidence" />
       <div className="mt-5">
-        <SectionHeading>Three states, never two.</SectionHeading>
+        <SectionHeading>Verified by SAP evidence, not plain filters.</SectionHeading>
       </div>
 
       <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
@@ -191,11 +191,38 @@ export function ThreeStates({ index, band = false }) {
       </div>
 
       <p className="mt-10 max-w-[62ch] text-[16px] leading-[1.6] text-ink/70">
-        The absence of evidence that a company has modernized is not proof that
-        they have not. It usually means no data. We label those accounts unknown
-        rather than counting them to make a list look bigger.
+        Finding no evidence that a company runs S/4HANA is not proof that it
+        still runs ECC. It usually means no data. Every state is checked against
+        SAP evidence, and accounts we cannot confirm stay labelled unknown
+        rather than padding the list.
       </p>
     </Section>
+  )
+}
+
+/* -------------------------------------------------------------------------- */
+/* Scope — every variant's last section before the CTA. Only the eyebrow      */
+/* number and the section background vary between variants. Pass             */
+/* band={false} when the section above is already on the band.               */
+/* -------------------------------------------------------------------------- */
+
+export function Scope({ index, band = true }) {
+  return (
+    <section className={`px-6 py-[120px] ${band ? 'bg-band' : ''}`}>
+      <div className="mx-auto w-full max-w-content">
+        <SectionMarker index={index} label="Scope" centered />
+      </div>
+      <div className="mx-auto mt-5 w-full max-w-[500px] text-center">
+        <h2 className="font-heading text-[32px] leading-[1.2] font-semibold tracking-display">
+          Learn one vertical. Repeat across many.
+        </h2>
+        <p className="mt-6 text-[16px] leading-[1.6] text-ink/70">
+          We start with SAP services: migration, clean core, RISE, and
+          integration. The same method of learning a vertical deeply carries to
+          the next, with IT services and cybersecurity where we are headed.
+        </p>
+      </div>
+    </section>
   )
 }
 
@@ -208,7 +235,8 @@ export function Cta() {
     <section className="bg-[var(--cta-bg)] px-6 py-[120px] text-[var(--cta-fg)]">
       <div className="mx-auto w-full max-w-content">
         <h2 className="max-w-[20ch] font-heading text-[32px] leading-[1.2] font-semibold tracking-display">
-          Tell us what you are best at. We will show you who matches.
+          Tell us what your SAP practice does best. We will show you who
+          matches.
         </h2>
 
         {/* NOTE: not wired to a backend yet — there is no submit handler and no
@@ -237,7 +265,7 @@ export function Cta() {
         </form>
 
         <p className="mt-4 text-[14px] leading-[1.6] text-[var(--cta-fg)]/60">
-          Early access, limited slots.
+          Early access. We set up your profile with you.
         </p>
       </div>
     </section>

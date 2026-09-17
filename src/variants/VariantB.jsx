@@ -5,6 +5,7 @@ import {
   HeroHeading,
   HeroSubhead,
   IcpSection,
+  Scope,
   Section,
   SectionMarker,
   ThreeStates,
@@ -75,6 +76,7 @@ export default function VariantB() {
       <Phase />
       <WhyScope />
       <ThreeStates index="05" />
+      <Scope index="06" />
       <Cta />
     </div>
   )
@@ -89,14 +91,13 @@ function Hero() {
     <Section className="pt-[120px] pb-[120px]">
       {/* Two statements, same size, each its own line block. */}
       <HeroHeading className="max-w-[22ch]">
-        <span className="block">Not every ERP project</span>
-        <span className="block">is your project.</span>
+        <span className="block">Revenue platform,</span>
+        <span className="block">purpose built for SAP partners.</span>
       </HeroHeading>
       <HeroSubhead>
-        Scope decides whether a deal is yours. Conversion, greenfield rebuild,
-        single site rollout, and extension without migration are four different
-        pieces of work, wanting four different benches. We classify the shape
-        before anyone has written a brief.
+        A brownfield conversion, a greenfield rebuild, a single site rollout,
+        and a clean core extension want four different benches. We read the
+        shape from SAP evidence before anyone has written a brief.
       </HeroSubhead>
       <HeroActions primary={{ href: '#shapes', label: 'See how we classify' }} />
     </Section>
@@ -112,11 +113,11 @@ const SHAPES = [
     accent: 'var(--accent)',
     title: 'Brownfield conversion',
     definition:
-      'The existing system is converted in place, with its history and its customizations carried forward.',
+      'ECC is converted to S/4HANA in place, with its history and custom code carried forward.',
     signals: [
-      'Conversion wording in role requirements',
+      'Conversion wording in SAP role requirements',
       'Existing module names retained',
-      'Long-tenure internal development staff',
+      'Long-tenure ABAP development staff',
     ],
     bid: 'Custom code remediation is the scope driver.',
   },
@@ -124,10 +125,10 @@ const SHAPES = [
     accent: 'var(--accent-2)',
     title: 'Greenfield rebuild',
     definition:
-      'A new system is stood up alongside the old one and the business is moved onto it.',
+      'S/4HANA is stood up fresh and the business moves onto redesigned processes.',
     signals: [
       'Process redesign language',
-      'Senior leadership hired from outside',
+      'ERP leadership hired from outside',
       'Parallel environment roles',
     ],
     bid: 'Process design capacity matters more than remediation.',
@@ -148,10 +149,10 @@ const SHAPES = [
     accent: 'var(--accent-4)',
     title: 'Extension without migration',
     definition:
-      'The core stays where it is while integration, reporting, and surrounding systems are replaced.',
+      'The ECC core stays where it is while integration, data, and surrounding systems are modernized around it.',
     signals: [
-      'Integration and data platform roles',
-      'Reporting replacement language',
+      'Integration and BTP roles',
+      'Clean core and data platform language',
       'No conversion wording anywhere',
     ],
     bid: 'The core is not in play. Bid the edges.',
@@ -163,7 +164,7 @@ const MATCH_GAP = 16
 
 const PRACTICE = [
   { label: 'Industry', value: 'Logistics and distribution' },
-  { label: 'Module focus', value: 'WM, EWM, TM' },
+  { label: 'Module focus', value: 'EWM, TM' },
   { label: 'Project type', value: 'Single site rollout' },
 ]
 
@@ -408,8 +409,9 @@ function Phase() {
       </div>
 
       <p className="mt-10 max-w-[62ch] text-[16px] leading-[1.6] text-ink/70">
-        The earlier the stage, the more the shape has to be read rather than
-        looked up. We classify it either way.
+        A transformation has a shape and a phase. The earlier the phase, the
+        more the shape has to be read rather than looked up. We read it from
+        hiring sequence, leadership moves, and partner activity either way.
       </p>
     </Section>
   )
@@ -464,23 +466,23 @@ function PhaseGroup({ phases, label, muted = false }) {
 
 const SCOPE_REASONS = [
   {
-    title: 'Whether you bid at all',
-    body: 'A single site rollout onto a template that already exists is a different practice than a conversion. Knowing the shape means you spend your qualification time on the accounts that match the bench you actually have.',
+    title: 'Why now',
+    body: 'Shape and phase show whether an account is forming a decision, read from hiring sequence, leadership moves, and partner activity rather than a single signal.',
   },
   {
-    title: 'Who you put on the proposal',
-    body: 'A conversion needs remediation depth. A rebuild needs process design. Naming the wrong lead in the first conversation is hard to walk back, and the shape tells you which bench to staff before you write anything.',
+    title: 'Who',
+    body: 'A conversion needs remediation depth. A rebuild needs process design. You see who arrived on their side and what they have done before, so you staff the right bench.',
   },
   {
-    title: 'What the number looks like',
-    body: 'The same install base supports proposals at very different price points. A rebuild and a conversion are not the same number, and shape sets the range long before anyone asks you for one.',
+    title: 'The angle',
+    body: 'The same install base supports very different proposals. Shape sets the angle, and the range, long before anyone asks you for a number.',
   },
 ]
 
 function WhyScope() {
   return (
     <Section className="bg-band pt-[120px] pb-[120px]">
-      <SectionMarker index="04" label="Why scope decides everything" as="h2" />
+      <SectionMarker index="04" label="What the rep gets" as="h2" />
 
       <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
         {SCOPE_REASONS.map((r) => (
