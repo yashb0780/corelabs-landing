@@ -9,11 +9,16 @@ import VariantD, { theme as themeD } from './variants/VariantD.jsx'
  * palette, plus type, radius and border treatment. Add a variant by dropping a
  * file in src/variants/ that default-exports the component and named-exports
  * `theme`, then adding it here.
+ *
+ * Dropdown labels do not match file names. Order and labels are set here:
+ * "Variant A" is VariantB.jsx, "Variant B" is VariantC.jsx, "Variant C" is
+ * VariantA.jsx, and "Variant D" is VariantD.jsx. The first entry is the
+ * default.
  */
 const VARIANTS = [
-  { id: 'A', label: 'Variant A', Component: VariantA, theme: themeA },
-  { id: 'B', label: 'Variant B', Component: VariantB, theme: themeB },
-  { id: 'C', label: 'Variant C', Component: VariantC, theme: themeC },
+  { id: 'A', label: 'Variant A', Component: VariantB, theme: themeB },
+  { id: 'B', label: 'Variant B', Component: VariantC, theme: themeC },
+  { id: 'C', label: 'Variant C', Component: VariantA, theme: themeA },
   { id: 'D', label: 'Variant D', Component: VariantD, theme: themeD },
 ]
 

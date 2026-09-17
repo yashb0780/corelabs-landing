@@ -8,16 +8,16 @@ How to read this:
 - **Keep** means the current text stays exactly as it is.
 - Everything else is new text, verbatim.
 - Row and card counts match the current layout, except one flagged
-  addition (A-4 gains a fifth row using the same row component).
+  addition (C-4 gains a fifth row using the same row component).
 
 Where the deck lands:
 - Title slide headline: every hero headline
 - Observe, Interpret, Prioritize, Activate: shared section 01 (all variants)
 - Learning loop: shared section 01 footnote
-- Problem slide and "What we read": A-3 The gap
-- Rep card (Score, Why now, Who, Angle): A-4, B-5, D-4
+- Problem slide and "What we read": C-3 The gap
+- Rep card (Score, Why now, Who, Angle): C-4, A-5, D-4
 - Four pillars: D-5
-- Learn one vertical, repeat across many: A-6
+- Learn one vertical, repeat across many: C-6
 
 Apply order: Shared sections, then A, B, C, D. One step at a time,
 reviewed at localhost, committed after each.
@@ -54,9 +54,9 @@ reviewed at localhost, committed after each.
 
 ---
 
-## Variant A: The gap
+## Variant C: The gap
 
-### A-1. Hero
+### C-1. Hero
 
 - Headline: "Revenue platform, purpose built for SAP partners."
 - Subhead: "Generic lead gen tools see your market as an industry code and a headcount. LeadPlus reads SAP-specific evidence to show which accounts match your practice, and when a transformation is taking shape."
@@ -71,11 +71,11 @@ reviewed at localhost, committed after each.
   - "PRESS RELEASE" / "New integration partner announced" / "24d"
   - "JOB POSTING" / "RISE and BTP roles opened" / "31d"
 
-### A-2. How it works
+### C-2. How it works
 
 Shared (S1).
 
-### A-3. The gap
+### C-3. The gap
 
 - Eyebrow: Keep ("02 / The gap")
 - Left column heading: "What generic lead gen reads"
@@ -98,7 +98,7 @@ Shared (S1).
   - "Partner activity" / "SI announcements, case studies, and speaking slots tied to the account." / "Continuous"
   - "Geography and capability" / "Where the account operates, matched against where your practice can deliver." / "Continuous"
 
-### A-4. What the rep gets
+### C-4. What the rep gets
 
 - Eyebrow: "03 / What the rep gets"
 - Headline: "Everything a rep needs to make the call"
@@ -111,35 +111,35 @@ Shared (S1).
   - **NEW ROW (flagged)** "Angle" / "Inferred" / "Migration readiness and integration modernization" / "The opening that fits both what the evidence shows and what your practice does best."
 - Caption: "Illustrative account. Every field in the product carries a source and a date."
 
-### A-5. Confidence
+### C-5. Confidence
 
 Shared (S2). Eyebrow 04.
 
-### A-6. Scope
+### C-6. Scope
 
 - Eyebrow: Keep ("05 / Scope")
 - Headline: "Learn one vertical. Repeat across many."
 - Body: "We start with SAP services: migration, clean core, RISE, and integration. The same method of learning a vertical deeply carries to the next, with IT services and cybersecurity where we are headed."
 
-### A-7. CTA
+### C-7. CTA
 
 Shared (S3).
 
 ---
 
-## Variant B: Deal shape
+## Variant A: Deal shape
 
-### B-1. Hero
+### A-1. Hero
 
 - Headline (two lines): "Revenue platform," / "purpose built for SAP partners."
 - Subhead: "A brownfield conversion, a greenfield rebuild, a single site rollout, and a clean core extension want four different benches. We read the shape from SAP evidence before anyone has written a brief."
 - Primary button: Keep ("See how we classify")
 
-### B-2. How it works
+### A-2. How it works
 
 Shared (S1).
 
-### B-3. Four shapes
+### A-3. Four shapes
 
 - Eyebrow: Keep ("02 / Four shapes")
 - Practice panel: Keep header ("Your practice")
@@ -164,12 +164,12 @@ Shared (S1).
     - Signals we read: "Integration and BTP roles"; "Clean core and data platform language"; "No conversion wording anywhere"
     - Keep ("For your bid: The core is not in play. Bid the edges.")
 
-### B-4. Phase
+### A-4. Phase
 
 - Eyebrow, timeline stages, group labels: Keep
 - Body: "A transformation has a shape and a phase. The earlier the phase, the more the shape has to be read rather than looked up. We read it from hiring sequence, leadership moves, and partner activity either way."
 
-### B-5. What the rep gets
+### A-5. What the rep gets
 
 - Eyebrow: "04 / What the rep gets"
 - Cards:
@@ -177,29 +177,29 @@ Shared (S1).
   - **"Who"**: "A conversion needs remediation depth. A rebuild needs process design. You see who arrived on their side and what they have done before, so you staff the right bench."
   - **"The angle"**: "The same install base supports very different proposals. Shape sets the angle, and the range, long before anyone asks you for a number."
 
-### B-6. Confidence
+### A-6. Confidence
 
 Shared (S2). Eyebrow 05.
 
-### B-7. CTA
+### A-7. CTA
 
 Shared (S3).
 
 ---
 
-## Variant C: Direction
+## Variant B: Direction
 
-### C-1. Hero
+### B-1. Hero
 
 - Headline: "Revenue platform, purpose built for SAP partners."
 - Subhead: "SAP customers on the same release are moving in different directions: converting to S/4HANA, replatforming, or staying on ECC and extending. We read which, from public evidence, without taking a side."
 - Primary button: Keep ("See how we read direction")
 
-### C-2. How it works
+### B-2. How it works
 
 Shared (S1).
 
-### C-3. Reading direction
+### B-3. Reading direction
 
 - Eyebrow: Keep
 - Timeline markers (label / source tag):
@@ -218,7 +218,7 @@ Shared (S1).
   - "Staying and extending": "Integration and BTP roles"; "Support contract renewed"
 - Caption: Keep ("We report the direction. Which of these is your opportunity depends on what you do.")
 
-### C-4. What the signals say
+### B-4. What the signals say
 
 - Eyebrow: Keep
 - Signal rows (signal / source / direction):
@@ -230,7 +230,7 @@ Shared (S1).
   - "ERP director hired from a consultancy" / "LINKEDIN" / "NOT STATED"
 - Caption: "Illustrative signals. No single signal makes a decision. We report the direction the evidence supports, including when it supports none."
 
-### C-5. Always on
+### B-5. Always on
 
 - Eyebrow: "04 / Always on"
 - Body: "Generic lead gen tools make you re-run a search and diff the results yourself. We watch every account that matches your practice, all the time: SAP hiring, leadership moves, filings, and partner activity. When something changes, you hear about it with the source, the date, the people involved, and what it does or does not say about direction."
@@ -241,11 +241,11 @@ Shared (S1).
   - "Regional building products group" / "New ERP director, ran a conversion before" / "16d"
 - Caption: Keep
 
-### C-6. Confidence
+### B-6. Confidence
 
 Shared (S2). Eyebrow 05.
 
-### C-7. CTA
+### B-7. CTA
 
 Shared (S3).
 

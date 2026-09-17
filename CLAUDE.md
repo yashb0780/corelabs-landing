@@ -47,9 +47,9 @@ derived by inverting the light palette.
 - Do not mention design partners, existing customers, or pilots, directly or by
   implication.
 
-**Each variant keeps its own angle.** A is the gap, B is deal shape, C is
-direction, D is context. Refresh each with the current messaging, but never
-merge them into one story.
+**Each variant keeps its own angle.** A is deal shape, B is direction, C is the
+gap, D is context. Refresh each with the current messaging, but never merge
+them into one story.
 
 **No fabricated proof.** No invented statistics, percentages, ROI figures,
 quotes, testimonials, real company names, headshots, or logo walls. Not even as
@@ -68,6 +68,13 @@ src/variants/_shared.jsx  primitives and whole sections shared by every variant
 src/App.jsx             variant switcher (top-right dropdown)
 src/index.css           Tailwind entry + base element styles
 ```
+
+Dropdown labels no longer match file names. `src/App.jsx` maps them:
+
+- "Variant A" → `VariantB.jsx` (deal shape)
+- "Variant B" → `VariantC.jsx` (direction)
+- "Variant C" → `VariantA.jsx` (the gap)
+- "Variant D" → `VariantD.jsx` (context)
 
 ## Adding a variant
 
