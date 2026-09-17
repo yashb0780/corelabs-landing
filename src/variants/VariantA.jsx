@@ -98,11 +98,11 @@ export default function VariantA() {
    section 3: no company is named and nothing here is presented as a statistic. */
 const SIGNALS = [
   { source: 'JOB POSTING', fragment: 'Senior ABAP role, S/4HANA conversion', age: '2d' },
-  { source: '10-K', fragment: 'Systems investment named in filing', age: '6d' },
-  { source: 'LINKEDIN', fragment: 'New VP of Enterprise Applications', age: '11d' },
-  { source: 'PRESS RELEASE', fragment: 'Second manufacturing site announced', age: '18d' },
-  { source: 'JOB POSTING', fragment: 'Integration roles, no conversion wording', age: '24d' },
-  { source: 'SEC FILING', fragment: 'New production site disclosed', age: '31d' },
+  { source: 'LINKEDIN', fragment: 'New ERP Director, previously at a consultancy', age: '6d' },
+  { source: '10-K', fragment: 'Systems investment named in filing', age: '11d' },
+  { source: 'JOB POSTING', fragment: 'SAP architect role, clean core wording', age: '18d' },
+  { source: 'PRESS RELEASE', fragment: 'New integration partner announced', age: '24d' },
+  { source: 'JOB POSTING', fragment: 'RISE and BTP roles opened', age: '31d' },
 ]
 
 function Hero() {
@@ -120,8 +120,8 @@ function Hero() {
             shape.
           </HeroSubhead>
           <HeroActions
-            primary={{ href: '#how-it-works', label: 'See how it works' }}
-            secondary={{ href: '#three-states', label: 'How we source signals' }}
+            primary={{ href: '#how-we-learn', label: 'See how it works' }}
+            secondary={{ href: '#the-gap', label: 'How we source signals' }}
           />
         </div>
 
@@ -169,24 +169,24 @@ function SignalFeed() {
 /* -------------------------------------------------------------------------- */
 
 const GENERIC = [
-  'Industry code',
-  'Employee count',
-  'Revenue band',
-  'A technographic tag that says the ERP vendor name and nothing more',
-  'Intent keywords scraped from a publisher network',
+  'SAP ECC installed',
+  'Company size',
+  'Industry',
+  'A generic migration email',
+  'Results stored, never learned from',
 ]
 
 const NEEDED = [
-  'The specific version and release they are running, with a dated source',
-  'Whether it is a conversion, a rebuild, or a single site rollout',
-  'Whether they are in evaluation, design, or have already chosen',
-  'Which way they are heading, and whether the evidence says so at all',
-  'Who inside the account is doing the work',
+  'S/4HANA and RISE hiring',
+  'ERP leadership changes, and who the new people are',
+  'SAP architecture roles',
+  'Clean core and data signals',
+  'SI activity on the account',
 ]
 
 function Comparison() {
   return (
-    <Section className="bg-band pt-[120px] pb-[120px]">
+    <Section id="the-gap" className="bg-band pt-[120px] pb-[120px]">
       <SectionMarker index="02" label="The gap" />
 
       {/* Subgrid keeps the two columns row-aligned on desktop while leaving each
@@ -196,7 +196,7 @@ function Comparison() {
         {/* Left: plain, no box. */}
         <div className="lg:row-span-6 lg:grid lg:grid-rows-subgrid">
           <h2 className="pr-8 pt-5 pb-5 font-heading text-[20px] leading-[1.3] font-semibold tracking-[-0.01em] text-ink/60">
-            What generic lead gen gives you
+            What generic lead gen reads
           </h2>
           {GENERIC.map((t) => (
             <div
@@ -211,7 +211,7 @@ function Comparison() {
         {/* Right: bordered and filled so it reads as the answer. */}
         <div className="rounded-theme border border-border bg-surface shadow-[var(--elevation)] lg:row-span-6 lg:grid lg:grid-rows-subgrid">
           <h2 className="px-6 pt-5 pb-5 font-heading text-[20px] leading-[1.3] font-semibold tracking-[-0.01em]">
-            What a specialist practice needs
+            What LeadPlus reads
           </h2>
           {NEEDED.map((t) => (
             <div
@@ -237,26 +237,27 @@ const COVERAGE = [
     cadence: 'Quarterly',
   },
   {
-    label: 'Engineering roles',
+    label: 'SAP hiring',
     description:
-      'Version numbers, module names, and contractor scope inside job requirements.',
+      'S/4HANA, RISE, and architecture roles, with the release and module names inside the requirements.',
     cadence: 'Weekly',
   },
   {
     label: 'Leadership moves',
     description:
-      'New CIOs, enterprise architects, and program leads, and what they did before.',
+      'New CIOs, ERP directors, and program leads, and the migrations they ran before.',
     cadence: 'Weekly',
   },
   {
-    label: 'Partner announcements',
-    description: 'Press releases, case studies, and speaking slots.',
+    label: 'Partner activity',
+    description:
+      'SI announcements, case studies, and speaking slots tied to the account.',
     cadence: 'Continuous',
   },
   {
-    label: 'Ownership events',
+    label: 'Geography and capability',
     description:
-      'Sponsor changes, acquisitions, and carve-outs that reset the systems roadmap.',
+      'Where the account operates, matched against where your practice can deliver.',
     cadence: 'Continuous',
   },
 ]
@@ -304,18 +305,25 @@ function SourceCoverage() {
 
 const RESOLUTIONS = [
   {
-    label: 'Stack',
-    value: 'ECC 6.0, on premise',
+    label: 'Why now',
+    value: 'Three migration signals in 45 days',
     explanation:
-      'Read from the version and module names inside their open engineering roles, not from a stale technographic tag.',
+      'An S/4HANA conversion role, a new ERP director, and a systems line in the latest filing, read together rather than one at a time.',
     confidence: 'confirmed',
   },
   {
-    label: 'Project type',
-    value: 'Brownfield conversion',
+    label: 'Who',
+    value: 'CIO, VP Apps, ERP Director',
     explanation:
-      'Conversion, greenfield rebuild, single site rollout, or extension without migration. Four different pieces of work, and only some of them are yours.',
-    confidence: 'inferred',
+      'The buying group, including who arrived recently and what they did before.',
+    confidence: 'confirmed',
+  },
+  {
+    label: 'Stack',
+    value: 'ECC 6.0, on premise',
+    explanation:
+      'Read from the release and module names inside open SAP roles, not from a stale technographic tag.',
+    confidence: 'confirmed',
   },
   {
     label: 'Phase',
@@ -325,20 +333,20 @@ const RESOLUTIONS = [
     confidence: 'inferred',
   },
   {
-    label: 'Context',
-    value: 'Vendor support date approaching',
+    label: 'Angle',
+    value: 'Migration readiness and integration modernization',
     explanation:
-      'Maintenance dates, compliance mandates, ownership changes, and trade exposure. Why the system is in play, reported without a view on which direction it should go.',
-    confidence: 'confirmed',
+      'The opening that fits both what the evidence shows and what your practice does best.',
+    confidence: 'inferred',
   },
 ]
 
 function Resolution() {
   return (
     <Section id="how-it-works" className="pt-[120px]">
-      <SectionMarker index="03" label="What we resolve" />
+      <SectionMarker index="03" label="What the rep gets" />
       <div className="mt-5">
-        <SectionHeading>Four things we resolve about an account</SectionHeading>
+        <SectionHeading>Everything a rep needs to make the call</SectionHeading>
       </div>
 
       <div className="mt-16 grid grid-cols-1 gap-y-10 lg:grid-cols-[2fr_3fr] lg:items-center lg:gap-x-10 lg:gap-y-0">
@@ -386,7 +394,7 @@ function AccountBlock() {
         <div>Ohio</div>
       </dl>
       <div className="mt-6 border-t border-border pt-4 text-right font-mono text-[13px] text-ink/60">
-        PRACTICE FIT 92
+        SCORE 92
       </div>
     </div>
   )
@@ -458,12 +466,12 @@ function StartingWithSap() {
       </div>
       <div className="mx-auto mt-5 w-full max-w-[500px] text-center">
         <h2 className="font-heading text-[32px] leading-[1.2] font-semibold tracking-display">
-          Starting with SAP
+          Learn one vertical. Repeat across many.
         </h2>
         <p className="mt-6 text-[16px] leading-[1.6] text-ink/70">
-          The signal layer is vendor agnostic. We are starting where the
-          mid-market install base is largest and the coverage gap is widest, and
-          expanding across the ERP landscape from there.
+          We start with SAP services: migration, clean core, RISE, and
+          integration. The same method of learning a vertical deeply carries to
+          the next, with IT services and cybersecurity where we are headed.
         </p>
       </div>
     </section>
