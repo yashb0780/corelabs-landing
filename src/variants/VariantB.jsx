@@ -89,14 +89,13 @@ function Hero() {
     <Section className="pt-[120px] pb-[120px]">
       {/* Two statements, same size, each its own line block. */}
       <HeroHeading className="max-w-[22ch]">
-        <span className="block">Not every ERP project</span>
-        <span className="block">is your project.</span>
+        <span className="block">Revenue platform,</span>
+        <span className="block">purpose built for SAP partners.</span>
       </HeroHeading>
       <HeroSubhead>
-        Scope decides whether a deal is yours. Conversion, greenfield rebuild,
-        single site rollout, and extension without migration are four different
-        pieces of work, wanting four different benches. We classify the shape
-        before anyone has written a brief.
+        A brownfield conversion, a greenfield rebuild, a single site rollout,
+        and a clean core extension want four different benches. We read the
+        shape from SAP evidence before anyone has written a brief.
       </HeroSubhead>
       <HeroActions primary={{ href: '#shapes', label: 'See how we classify' }} />
     </Section>

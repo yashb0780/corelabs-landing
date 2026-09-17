@@ -111,13 +111,13 @@ function Hero() {
       <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-[3fr_2fr] lg:items-center lg:gap-x-16">
         <div>
           <HeroHeading className="max-w-[16ch]">
-            Nobody built a lead gen tool for firms like yours.
+            Revenue platform, purpose built for SAP partners.
           </HeroHeading>
           <HeroSubhead>
-            ERP service firms run narrow practices. Specific industries,
-            specific modules, specific kinds of project, and a bench that is
-            genuinely good at some of it and not the rest. Every tool built for
-            you knows your market as an industry code and a headcount.
+            Generic lead gen tools see your market as an industry code and a
+            headcount. LeadPlus reads SAP-specific evidence to show which
+            accounts match your practice, and when a transformation is taking
+            shape.
           </HeroSubhead>
           <HeroActions
             primary={{ href: '#how-it-works', label: 'See how it works' }}

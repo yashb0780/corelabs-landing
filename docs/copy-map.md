@@ -59,7 +59,7 @@ reviewed at localhost, committed after each.
 ### A-1. Hero
 
 - Headline: "Revenue platform, purpose built for SAP partners."
-- Subhead: "Nobody built a lead gen tool for SAP partners. Generic tools see your market as an industry code and a headcount. LeadPlus reads SAP-specific evidence to show which accounts match your practice, and when a transformation is taking shape."
+- Subhead: "Generic lead gen tools see your market as an industry code and a headcount. LeadPlus reads SAP-specific evidence to show which accounts match your practice, and when a transformation is taking shape."
 - Primary button: Keep ("See how it works")
 - Secondary link: Keep text ("How we source signals"). **Fix the target:** point it at the 02 The gap section instead of Confidence.
 - Signal feed header: Keep ("Signal feed")
@@ -132,7 +132,7 @@ Shared (S3).
 ### B-1. Hero
 
 - Headline (two lines): "Revenue platform," / "purpose built for SAP partners."
-- Subhead: "Not every SAP project is your project. A brownfield conversion, a greenfield rebuild, a single site rollout, and a clean core extension want four different benches. We read the shape from SAP evidence before anyone has written a brief."
+- Subhead: "A brownfield conversion, a greenfield rebuild, a single site rollout, and a clean core extension want four different benches. We read the shape from SAP evidence before anyone has written a brief."
 - Primary button: Keep ("See how we classify")
 
 ### B-2. How it works
@@ -256,7 +256,7 @@ Shared (S3).
 ### D-1. Hero
 
 - Headline: "Revenue platform, purpose built for SAP partners."
-- Subhead: "Nobody changes an SAP system because it is old. A maintenance date, an audit, an ownership change, or a new plant puts it in play. We read that context alongside the install base, so your rep knows why now, who, and the angle."
+- Subhead: "A maintenance date, an audit, an ownership change, or a new plant puts an SAP system in play. We read that context alongside the install base, so your rep knows why now, who, and the angle."
 - Primary button: Keep ("See the context")
 
 ### D-2. How it works

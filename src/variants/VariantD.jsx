@@ -86,12 +86,12 @@ function Hero() {
   return (
     <Section className="pt-[120px] pb-[120px]">
       <HeroHeading className="max-w-[16ch]">
-        Nobody changes an ERP because it is old.
+        Revenue platform, purpose built for SAP partners.
       </HeroHeading>
       <HeroSubhead>
-        A support date, an audit, an ownership change, or a new plant is what
-        puts a system in play. We track that context alongside the install base,
-        so you can tell which accounts match the work your practice does.
+        A maintenance date, an audit, an ownership change, or a new plant puts
+        an SAP system in play. We read that context alongside the install base,
+        so your rep knows why now, who, and the angle.
       </HeroSubhead>
       <HeroActions primary={{ href: '#pressures', label: 'See the context' }} />
     </Section>

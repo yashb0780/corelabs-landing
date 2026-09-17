@@ -90,13 +90,12 @@ function Hero() {
   return (
     <Section className="bg-[image:var(--hero-gradient)] pt-[120px]">
       <HeroHeading className="max-w-[18ch]">
-        Direction, not just install base.
+        Revenue platform, purpose built for SAP partners.
       </HeroHeading>
       <HeroSubhead>
-        Companies running the same system are moving in different directions.
-        Some are modernizing in place, some are replatforming, some are staying
-        where they are and extending. We read which, from public evidence,
-        without taking a side.
+        SAP customers on the same release are moving in different directions:
+        converting to S/4HANA, replatforming, or staying on ECC and extending.
+        We read which, from public evidence, without taking a side.
       </HeroSubhead>
       <HeroActions
         primary={{ href: '#window', label: 'See how we read direction' }}
